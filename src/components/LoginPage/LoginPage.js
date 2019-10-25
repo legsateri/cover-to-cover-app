@@ -47,7 +47,7 @@ class LoginPage extends React.Component {
             <>
                 <main>
                     <header>
-                        <h1>Start Writing</h1>
+                        <h1>Start Reading</h1>
                         <form>
                             <div className="radio">
                                 <label>

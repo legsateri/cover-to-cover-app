@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import StartClubPage from './components/StartClubPage/StartClubPage';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<StartClubPage />, document.getElementById('root'));
