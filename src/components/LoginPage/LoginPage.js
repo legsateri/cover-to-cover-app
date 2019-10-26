@@ -24,15 +24,12 @@ class LoginPage extends React.Component {
             formOutput =
                 <>
                     <form className='login_form'>
-                        <div>
-                            <label htmlFor="loginEmail">Email</label>
-                            <input type="text" name='loginEmail' id='loginEmail' />
-                        </div>
-                        <div>
-                            <label htmlFor="loginPassword">Password</label>
-                            <input type="loginPassword" name='loginPassword' id='loginPassword' />
-                        </div>
-                        {/* FIXME: Make submit functionality work */}
+                        <label htmlFor="loginEmail">Email</label>
+                        <input type="text" name='loginEmail' id='loginEmail' />
+
+                        <label htmlFor="loginPassword">Password</label>
+                        <input type="loginPassword" name='loginPassword' id='loginPassword' />
+
                         <button type='submit'>Login</button>
                     </form>
                 </>
@@ -59,7 +56,7 @@ class LoginPage extends React.Component {
                                         onClick={this.handleForms}
                                     />
                                     Login
-                            </label>
+                                </label>
                             </div>
 
                             <div className="radio">
@@ -72,7 +69,7 @@ class LoginPage extends React.Component {
                                         onClick={this.handleForms}
                                     />
                                     Signup
-                            </label>
+                                </label>
                             </div>
                         </form>
                     </header>

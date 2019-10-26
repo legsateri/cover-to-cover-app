@@ -19,13 +19,28 @@ export default class StartClubPage extends Component {
                         <textarea class='description' name='description' rows='7' required></textarea>
 
                         <label for="club-location">Location</label>
-                        <label><input type="radio" name="club-location" className="radio" required />Online</label>
-                        <label><input type="radio" name="club-location" className="radio" required />Not Online</label>
-                        <input type="text" name="club-location" className="location" required />
+                        <select>
+                            <option value='Choose One'>Choose One</option>
+                            <option value='Online'>Online</option>
+                            <option value='Not Online'>Not Online</option>
+                        </select> 
+                        
+                        <br />
+
+                        <input 
+                            type="text" 
+                            name="club-location" 
+                            className="location" 
+                            placeholder=' City' 
+                            required 
+                        />
 
                         <label for="club-type">Club Type</label>
-                        <label><input type="radio" name="club-type" class="radio" required />Private</label>
-                        <label><input type="radio" name="club-type" class="radio" required />Public</label>
+                        <select>
+                            <option value='Choose One'>Choose One</option>
+                            <option value='Private'>Private</option>
+                            <option value='Public'>Public</option>
+                        </select>
 
                         <label for="club-members">Add Members (optional)</label>
                         <input type="text" name="club-members" class="name" />
