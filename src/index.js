@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import AssignedBookPage from './components/AssignedBookPage/AssignedBookPage';
+import Homepage from './components/Homepage/Homepage';
 
-ReactDOM.render(<AssignedBookPage />, document.getElementById('root'));
+ReactDOM.render(<Homepage />, document.getElementById('root'));
