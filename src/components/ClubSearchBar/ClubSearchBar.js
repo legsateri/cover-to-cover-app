@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './ClubSearchBar.css'
 
-export default class Homepage extends Component {
+export default class ClubSearchBar extends Component {
     render() {
         return (
             <>
