@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import AppContext from '../../AppContext'
 import './StartClubPage.css'
 
 export default class StartClubPage extends Component {
