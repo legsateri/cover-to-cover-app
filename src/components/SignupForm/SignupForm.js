@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './SignupForm.css';
 
 class SignupForm extends React.Component {
@@ -20,7 +21,7 @@ class SignupForm extends React.Component {
 
                     <br />
                     
-                    <button type='submit'>Sign Up</button>
+                    <Link to='/account'><button type='submit'>Sign Up</button></Link>
                 </form>
             </>
         );

@@ -66,6 +66,10 @@ li {
     font-size: 15px;
 }
 
-img {
-    width: 20%;
+.sidebar-spacing {
+    margin-left: 250px;
+}
+
+.flex {
+    display: flex
 }

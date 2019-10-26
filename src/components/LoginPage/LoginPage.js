@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import SignupForm from '../SignupForm/SignupForm';
 import './LoginPage.css';
 
@@ -30,7 +31,9 @@ class LoginPage extends React.Component {
                         <label htmlFor="loginPassword">Password</label>
                         <input type="loginPassword" name='loginPassword' id='loginPassword' />
 
-                        <button type='submit'>Login</button>
+                        <br />
+
+                        <Link to='/account'><button type='submit'>Login</button></Link>
                     </form>
                 </>
         } else {

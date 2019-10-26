@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import book from '../../images/book-cover.jpg'
 import './AssignedBookPage.css'
 
 export default class AssignedBookPage extends Component {
@@ -6,8 +7,7 @@ export default class AssignedBookPage extends Component {
         return (
             <>
                 <header>
-                    <h1>It Didn't Start With You</h1>
-                    <h2>Mark Wolynn</h2>
+                    <img src={book} alt='Book' />
                     <p>A groundbreaking appriach to transforming traumatic legacies passed down in families over generations, by an acclaimed expert in the field.</p>
                 </header>
 
@@ -16,6 +16,7 @@ export default class AssignedBookPage extends Component {
                     <p> 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</p>
 
                     <h3>Chapter 2:</h3>
+                    {/* FIXME: Create page for when this is clicked.*/}
                     <button>Add Comment</button>
 
                     <p>I would never have thought a great grandmother's experience would still cause trauma to her great granddaughter. <span>T-Money</span></p>

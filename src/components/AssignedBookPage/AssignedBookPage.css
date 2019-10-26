@@ -26,6 +26,7 @@ nav {
 
 header {
     padding: 45px 15px;
+    margin-top: 100px;
 }
 
 section {
@@ -42,13 +43,6 @@ h2 {
     font-size: 18px;
 }
 
-ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    padding: 0;
-}
-
 li {
     font-size: 15px;
 }
@@ -59,4 +53,8 @@ li {
 
 .hide {
     display: none;
+}
+
+img {
+    padding-bottom: 50px;
 }

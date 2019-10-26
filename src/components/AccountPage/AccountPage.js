@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import me from '../../images/me.jpeg'
 import './AccountPage.css'
 
 export default class AccountPage extends Component {
@@ -10,8 +11,13 @@ export default class AccountPage extends Component {
                 </header>
 
                 <section>
-                    <p>[Placeholder to upload picture]</p>
                     <h2>Allegra Pusateri</h2>
+                    <img src={me} alt='Me' />
+
+                    <br />
+
+                    <button>Upload</button>
+
                     <p>writerlegs@gmail.com</p>
                 </section>
 

@@ -20,7 +20,7 @@ nav {
     background-color: #aaa;
 }
 
-ul {
+.nav {
     list-style: none;
     display: flex;
     justify-content: space-around;

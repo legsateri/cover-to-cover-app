@@ -1,6 +1,12 @@
 import React from 'react';
+import { BrowserRouter } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import './index.css';
-import AccountPage from './components/AccountPage/AccountPage';
+import App from './components/App/App';
 
-ReactDOM.render(<AccountPage />, document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('root')
+);

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './ClubSearchBar.css'
 
 export default class ClubSearchBar extends Component {
@@ -7,7 +8,7 @@ export default class ClubSearchBar extends Component {
             <>
                 <form>
                     <input placeholder=' Find a book club' />
-                    <button className='search-button'>Search</button>
+                    <Link to='/results'><button className='search-button'>Search</button></Link>
                 </form>
             </>
         )

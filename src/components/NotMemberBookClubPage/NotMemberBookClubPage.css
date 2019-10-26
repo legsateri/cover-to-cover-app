@@ -62,10 +62,16 @@ label {
     margin-bottom: 30px;
 }
 
+ul {
+    list-style: none;
+    justify-content: space-around;
+    padding: 0;
+}
+
 li {
     font-size: 15px;
 }
 
-img {
-    width: 20%;
+.sidebar-spacing {
+    margin-left: 250px;
 }

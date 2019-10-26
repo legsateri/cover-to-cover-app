@@ -17,6 +17,9 @@ export default class StartClubPage extends Component {
                         <label for='description'>Description</label>
                         <textarea class='description' name='description' rows='7' required></textarea>
 
+                        <label for='topic'>Topic</label>
+                        <input type='text' name='topic' className='topic' required />
+
                         <label for="club-location">Location</label>
                         <select>
                             <option value='Choose One'>Choose One</option>
