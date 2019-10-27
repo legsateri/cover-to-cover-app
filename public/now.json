@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "alias": "allegra-cover-to-cover-app",
+    "name": "cover-to-cover-app",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }
