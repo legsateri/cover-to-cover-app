@@ -8,10 +8,10 @@ class SignupForm extends React.Component {
             <>
                 <form className='signup_form'>
                     <label htmlFor="first-name">First Name</label>
-                    <input placeholder='First Name' type="text" name='first-name' id='first-name' />
+                    <input type="text" name='first-name' id='first-name' />
 
                     <label htmlFor="last-name">Last Name</label>
-                    <input placeholder='Last Name' type="text" name='last-name' id='last-name' />
+                    <input type="text" name='last-name' id='last-name' />
 
                     <label htmlFor="signupEmail">Email</label>
                     <input type="text" name='emsignupEmailail' id='signupEmail' />
@@ -21,6 +21,7 @@ class SignupForm extends React.Component {
 
                     <br />
                     
+                    {/* TODO: Set up real functionality. */}
                     <Link to='/account'><button type='submit'>Sign Up</button></Link>
                 </form>
             </>

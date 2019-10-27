@@ -10,6 +10,8 @@ import AssignedBookPage from '../AssignedBookPage/AssignedBookPage'
 import StartClubPage from '../StartClubPage/StartClubPage'
 import LoginPage from '../LoginPage/LoginPage'
 import AccountPage from '../AccountPage/AccountPage'
+import AddCommentForm from '../AddCommentForm/AddCommentForm'
+import FindBookResults from '../FindBookResults/FindBookResults'
 import Footer from '../Footer/Footer'
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
         <Route path='/start-club' component={StartClubPage} />
         <Route path='/login' component={LoginPage} />
         <Route path='/account' component={AccountPage} />
+        <Route path='/add-comment' component={AddCommentForm} />
+        <Route path='/books' component={FindBookResults} />
       </main>
 
       <Footer />

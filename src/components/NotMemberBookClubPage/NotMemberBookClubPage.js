@@ -13,7 +13,8 @@ export default class NotMemberBookClubPage extends Component {
                     <h1>UCWbLadies</h1>
                     <p>Four gals worked at the writing center. Now they read things.</p>
 
-                    {/* FIXME: Create page for when this is clicked. */}
+                    {/* TODO: Will automatically send request to club members with account info. */}
+                    {/* TODO: Want to replace button with success message upon click. */}
                     <button>Ask To Join</button>
                 </header>
 

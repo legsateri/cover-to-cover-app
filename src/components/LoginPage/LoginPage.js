@@ -33,6 +33,7 @@ class LoginPage extends React.Component {
 
                         <br />
 
+                        {/* TODO: Set up real functionality. */}
                         <Link to='/account'><button type='submit'>Login</button></Link>
                     </form>
                 </>

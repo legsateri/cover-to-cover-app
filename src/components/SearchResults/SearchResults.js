@@ -15,6 +15,7 @@ export default class SearchResults extends Component {
                     <h2>UCWbLadies</h2>
                     <p>Four gals worked at the writing center. Now they read things.</p>
 
+                    {/* TODO: Set up real functionality. */}
                     <Link to='/no-member-club'><button>View</button></Link>
                 </section>
             </>

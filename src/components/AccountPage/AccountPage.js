@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import me from '../../images/me.jpeg'
 import './AccountPage.css'
 
@@ -16,16 +17,15 @@ export default class AccountPage extends Component {
 
                     <br />
 
+                    {/* TODO: Set up real functionality. */}
                     <button>Upload</button>
-
-                    <p>writerlegs@gmail.com</p>
                 </section>
 
                 <section>
                     <h3>Your Clubs</h3>
 
                     <ul>
-                        <li>UCWbLadies</li>
+                        <Link to='/member-club'><li>UCWbLadies</li></Link>
                     </ul>
                 </section>
             </>

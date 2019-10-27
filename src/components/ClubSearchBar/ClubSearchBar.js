@@ -8,6 +8,7 @@ export default class ClubSearchBar extends Component {
             <>
                 <form>
                     <input placeholder=' Find a book club' />
+                    {/* TODO: Set up real functionality. */}
                     <Link to='/results'><button className='search-button'>Search</button></Link>
                 </form>
             </>

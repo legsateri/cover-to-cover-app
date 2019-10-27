@@ -30,19 +30,32 @@ export default class MemberBookClubPage extends Component {
                 <section className='sidebar-spacing'>
                     <h3>Next You're Reading:</h3>
                     <p>Tara needs to pick a book.</p>
-                    {/* FIXME: Create page for when this is clicked.*/}
-                    <button>Find A Book</button>
+
+                    <input type='text' name='search' className='search' required />
+                    {/* TODO: Set up real functionality. */}
+                    <Link to='/books'><button className='find-book'>Find A Book</button></Link>
                 </section>
 
                 <section className='sidebar-spacing'>
                     <h3>Based on your past choices, we recommend:</h3>
                     <ul className='flex'>
-                        {/* FIXME: Create page for when this is clicked.*/}
-                        <li>[Book Cover]</li>
-                        {/* FIXME: Create page for when this is clicked.*/}
-                        <li>[Book Cover]</li>
-                        {/* FIXME: Create page for when this is clicked.*/}
-                        <li>[Book Cover]</li>
+                        <li className='reco-books'>[Book Cover] 
+                            <br />
+                            {/* TODO: Set up real functionality. */}
+                            <button>Assign</button>
+                        </li>
+
+                        <li className='reco-books'>[Book Cover] 
+                            <br />
+                            {/* TODO: Set up real functionality. */}
+                            <button>Assign</button>
+                        </li>
+
+                        <li className='reco-books'>[Book Cover] 
+                            <br />
+                            {/* TODO: Set up real functionality. */}
+                            <button>Assign</button>
+                        </li>
                     </ul>
                 </section>
             </>

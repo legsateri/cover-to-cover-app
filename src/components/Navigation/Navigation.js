@@ -10,7 +10,7 @@ export default class Navigation extends Component {
                     <ul className='nav'>
                         <Link to='/'><li>[Placeholder For Logo]</li></Link>
                         <Link to='/find'><li>Find A Book Club</li></Link>
-                        {/* FIXME: Fix hover so you can see clubs you're a member of. */}
+                        {/* TODO: Add hover that shows your clubs when logged in, prompts login when not. */}
                         <li>View Your Book Clubs</li>
                         <Link to='/start-club'><li>Start A Book Club</li></Link>
                         <Link to='/login'><li>Account</li></Link>

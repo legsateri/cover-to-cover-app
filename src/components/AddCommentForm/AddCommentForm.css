@@ -42,20 +42,20 @@ section:nth-child(even) {
 p {
     margin: 0 auto;
     max-width: 650px;
-    font-size: 15px;
 }
 
 p+p {
     margin-top: 15px;
 }
 
-input, textarea {
+.name, textarea {
     width: 100%;
     max-width: 500px;
 }
 
 label {
     display: block;
+    padding-top: 20px;
 }
 
 .form-section {
@@ -66,19 +66,8 @@ li {
     font-size: 15px;
 }
 
-.sidebar-spacing {
-    margin-left: 250px;
-}
-
 .flex {
     display: flex;
-}
-
-.find-book {
-    margin-left: 10px;
-}
-
-.reco-books {
-    padding-right: 10px;
-    padding-left: 10px;
+    justify-content: center;
+    padding-top: 20px;
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './StartClubPage.css'
 
+{/* TODO: Add placeholders for inputs and text area. */}
+
 export default class StartClubPage extends Component {
     render() {
         return (
@@ -25,16 +27,16 @@ export default class StartClubPage extends Component {
                             <option value='Choose One'>Choose One</option>
                             <option value='Online'>Online</option>
                             <option value='Not Online'>Not Online</option>
-                        </select> 
-                        
+                        </select>
+
                         <br />
 
-                        <input 
-                            type="text" 
-                            name="club-location" 
-                            className="location" 
-                            placeholder=' City' 
-                            required 
+                        <input
+                            type="text"
+                            name="club-location"
+                            className="location"
+                            placeholder=' City'
+                            required
                         />
 
                         <label for="club-type">Club Type</label>
@@ -52,6 +54,7 @@ export default class StartClubPage extends Component {
 
                         <br />
 
+                        {/* TODO: Want this to be a popup modal not a new page. */}
                         <button type="submit">Submit</button>
                     </form>
                 </section>
