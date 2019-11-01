@@ -18,6 +18,11 @@ export default class AddCommentForm extends Component {
                         
                         <br />
 
+                        <label for='comment'>Page Number</label>
+                        <textarea class='comment' name='comment' required></textarea>
+
+                        <br />
+
                         {/* TODO: Set up real functionality. */}
                         <button type="submit">Add</button>
                     </form>
