@@ -50,7 +50,13 @@ export default class StartClubPage extends Component {
                         <input type="text" name="club-members" class="name" />
 
                         <label for="club-max-members">Maximum Number of Members</label>
-                        <input type="text" name="club-max-members" class="name" />
+                        <select>
+                            <option value='One'>One</option>
+                            <option value='Two'>Two</option>
+                            <option value='Three'>Three</option>
+                            <option value='Four'>Four</option>
+                            <option value='Five'>Five</option>
+                        </select>
 
                         <br />
 
