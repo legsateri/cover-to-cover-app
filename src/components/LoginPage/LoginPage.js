@@ -1,16 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import TokenService from '../../services/token-service'
+import AuthApiService from '../../services/auth-api-service'
 import SignupForm from '../SignupForm/SignupForm';
 import './LoginPage.css';
 
 class LoginPage extends React.Component {
+    static defaultProps = {
+        onLoginSuccess: () => { }
+    }
+
     constructor() {
         super();
         this.state = {
             form: "login",
+            error: null
         }
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmitJwtAuth = this.handleSubmitJwtAuth.bind(this)
     }
+
 
     handleChange(event) {
         this.setState({
@@ -18,13 +26,42 @@ class LoginPage extends React.Component {
         })
     }
 
+    handleSubmitJwtAuth(event) {
+        event.preventDefault()
+        this.setState({ error: null })
+        const { email, password } = event.target
+
+        AuthApiService.postLogin({
+            // FIXME:  Cannot read property 'value' of undefined
+            email: email.value,
+            password: password.value
+        })
+            .then(res => {
+                email.value = ''
+                password.value = ''
+                TokenService.saveAuthToken(res.authToken)
+                this.props.onLoginSuccess()
+            })
+            .catch(res => {
+                this.setState({ error: res.error })
+            })
+    }
+
     render() {
+        const { error } = this.state
         let formOutput;
 
         if (this.state.form === "login") {
             formOutput =
                 <>
-                    <form className='login_form'>
+                    <form
+                        className='login_form'
+                        onSubmit={this.handleSubmitJwtAuth}
+                    >
+                        <div role='alert'>
+                            {error && <p>{error}</p>}
+                        </div>
+
                         <label htmlFor="loginEmail">Email</label>
                         <input type="text" name='loginEmail' id='loginEmail' />
 
@@ -33,8 +70,7 @@ class LoginPage extends React.Component {
 
                         <br />
 
-                        {/* TODO: Set up real functionality. */}
-                        <Link to='/account'><button type='submit'>Login</button></Link>
+                        <button type='submit'>Login</button>
                     </form>
                 </>
         } else {

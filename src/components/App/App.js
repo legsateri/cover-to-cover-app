@@ -8,7 +8,7 @@ import NotMemberBookClubPage from '../NotMemberBookClubPage/NotMemberBookClubPag
 import MemberBookClubPage from '../MemberBookClubPage/MemberBookClubPage'
 import AssignedBookPage from '../AssignedBookPage/AssignedBookPage'
 import StartClubPage from '../StartClubPage/StartClubPage'
-import LoginPage from '../LoginPage/LoginPage'
+import Login from '../../routes/Login'
 import AccountPage from '../AccountPage/AccountPage'
 import AddCommentForm from '../AddCommentForm/AddCommentForm'
 import FindBookResults from '../FindBookResults/FindBookResults'
@@ -27,7 +27,7 @@ function App() {
         <Route path='/member-club' component={MemberBookClubPage} />
         <Route path='/assigned-book' component={AssignedBookPage} />
         <Route path='/start-club' component={StartClubPage} />
-        <Route path='/login' component={LoginPage} />
+        <Route path='/login' component={Login} />
         <Route path='/account' component={AccountPage} />
         <Route path='/add-comment' component={AddCommentForm} />
         <Route path='/books' component={FindBookResults} />
