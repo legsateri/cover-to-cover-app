@@ -6,18 +6,18 @@ export function NiceDate({ date, format = 'MM-dd-yyyy' }) {
 }
 
 export function Button({ className, ...props }) {
-    return <button className={['Button', className].join('')} {...props} />
+    return <button className={['Button', className].join(' ')} {...props} />
 }
 
 export function Input({ className, ...props }) {
     return (
-        <input className={['Input', className].join('')} {...props} />
+        <input className={['Input', className].join(' ')} {...props} />
     )
 }
 
 export function Required({ className, ...props }) {
     return (
-        <span className={['Required', className].join('')} {...props}>&#42;</span>
+        <span className={['Required', className].join(' ')} {...props}>&#42;</span>
     )
 }
 
@@ -26,7 +26,7 @@ export function Section({ className, list, ...props }) {
         'Section',
         list && 'Section--list',
         className,
-    ].filter(Boolean).join('')
+    ].filter(Boolean).join(' ')
 
     return (
         <section className={classes} {...props} />

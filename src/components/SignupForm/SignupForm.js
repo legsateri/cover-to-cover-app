@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Button, Input, Required } from '../Utils/Utils'
 import './SignupForm.css';
 import AuthApiService from '../../services/auth-api-service';
 
@@ -13,7 +13,7 @@ class SignupForm extends React.Component {
         this.state = {
             error: null
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(event) {
@@ -21,8 +21,8 @@ class SignupForm extends React.Component {
         const { first_name, last_name, email, password } = event.target
 
         this.setState({ error: null })
+
         AuthApiService.postUser({
-            // FIXME: Cannot read property 'value' of undefined
             email: email.value,
             password: password.value,
             first_name: first_name.value,
@@ -36,8 +36,9 @@ class SignupForm extends React.Component {
                 this.props.onRegistrationSuccess()
             })
             .catch(res => {
-                this.setState({ error: res.srror })
+                this.setState({ error: res.error })
             })
+            console.log('User is registered!')
     }
 
     render() {
@@ -53,21 +54,21 @@ class SignupForm extends React.Component {
                         {error && <p>{error}</p>}
                     </div>
 
-                    <label htmlFor="first-name">First Name</label>
-                    <input type="text" name='first-name' id='first-name' />
+                    <label htmlFor="first_name">First Name<Required /></label>
+                    <Input type="text" name='first_name' id='first_name' />
 
-                    <label htmlFor="last-name">Last Name</label>
-                    <input type="text" name='last-name' id='last-name' />
+                    <label htmlFor="last_name">Last Name<Required /></label>
+                    <Input type="text" name='last_name' id='last_name' />
 
-                    <label htmlFor="signupEmail">Email</label>
-                    <input type="text" name='emsignupEmailail' id='signupEmail' />
+                    <label htmlFor="email">Email<Required /></label>
+                    <Input type="text" name='email' id='email' />
 
-                    <label htmlFor="signupPassword">Password</label>
-                    <input type="signupPassword" name='signupPassword' id='signupPassword' />
+                    <label htmlFor="password">Password<Required /></label>
+                    <Input type="password" name='password' id='password' />
 
                     <br />
 
-                    <button type='submit'>Sign Up</button>
+                    <Button type='submit'>Sign Up</Button>
                 </form>
             </>
         );

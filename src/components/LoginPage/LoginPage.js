@@ -1,8 +1,9 @@
-import React from 'react';
+import React from 'react'
+import { Button, Input } from '../Utils/Utils'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
-import SignupForm from '../SignupForm/SignupForm';
-import './LoginPage.css';
+import SignupForm from '../SignupForm/SignupForm'
+import './LoginPage.css'
 
 class LoginPage extends React.Component {
     static defaultProps = {
@@ -32,7 +33,6 @@ class LoginPage extends React.Component {
         const { email, password } = event.target
 
         AuthApiService.postLogin({
-            // FIXME:  Cannot read property 'value' of undefined
             email: email.value,
             password: password.value
         })
@@ -45,6 +45,7 @@ class LoginPage extends React.Component {
             .catch(res => {
                 this.setState({ error: res.error })
             })
+            console.log('User is logged in!')
     }
 
     render() {
@@ -62,15 +63,15 @@ class LoginPage extends React.Component {
                             {error && <p>{error}</p>}
                         </div>
 
-                        <label htmlFor="loginEmail">Email</label>
-                        <input type="text" name='loginEmail' id='loginEmail' />
+                        <label htmlFor="email">Email</label>
+                        <Input type="text" name='email' id='email' />
 
-                        <label htmlFor="loginPassword">Password</label>
-                        <input type="loginPassword" name='loginPassword' id='loginPassword' />
+                        <label htmlFor="password">Password</label>
+                        <Input type="password" name='password' id='password' />
 
                         <br />
 
-                        <button type='submit'>Login</button>
+                        <Button type='submit'>Login</Button>
                     </form>
                 </>
         } else {

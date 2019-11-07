@@ -1,5 +1,5 @@
 import config from '../config'
-import TokenServices from '../services/token-service'
+import TokenService from '../services/token-service'
 
 const ClubApiService = {
     getClubs() {
@@ -29,7 +29,7 @@ const ClubApiService = {
     getClubComments(bookId) {
         return fetch(`${config.API_ENDPOINT}/api/comments/`, {
             headers: {
-                'authorization': `bearer ${TokenServices.getAuthToken()}`
+                'authorization': `bearer ${TokenService.getAuthToken()}`
             }
         })
             .then(res => 
@@ -43,7 +43,7 @@ const ClubApiService = {
         return fetch(`${config.API_ENDPOINT}/api/comments`, {
             method: 'POST',
             headers: {
-                'authorization': `bearer ${TokenServices.getAuthToken()}`,
+                'authorization': `bearer ${TokenService.getAuthToken()}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify({
