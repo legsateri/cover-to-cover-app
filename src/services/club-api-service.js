@@ -6,7 +6,7 @@ const ClubApiService = {
         return fetch(`${config.API_ENDPOINT}/api/clubs`, {
             headers: {}
         })
-            .then(res => 
+            .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
@@ -19,7 +19,7 @@ const ClubApiService = {
                 'authorization': `bearer ${TokenService.getAuthToken()}`,
             }
         })
-            .then(res => 
+            .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
@@ -32,7 +32,7 @@ const ClubApiService = {
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             }
         })
-            .then(res => 
+            .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
@@ -54,7 +54,7 @@ const ClubApiService = {
                 pageNumber
             })
         })
-            .then(res => 
+            .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
