@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './AddCommentForm.css'
 
-{/* TODO: Want this to be a popup modal not a new page. */}
+// TODO: Want this to be a popup modal not a new page.
 
 export default class AddCommentForm extends Component {
     render() {

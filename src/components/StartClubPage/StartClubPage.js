@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './StartClubPage.css'
 
-{/* TODO: Add placeholders for inputs and text area. */}
+// TODO: Add placeholders for inputs and text area.
 
 export default class StartClubPage extends Component {
     render() {

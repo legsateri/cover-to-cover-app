@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-{/* TODO: Maybe add a search bar to page to execute new search. */ }
+// TODO: Maybe add a search bar to page to execute new search.
 
 export default class Results extends Component {
     render() {
