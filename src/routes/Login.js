@@ -21,6 +21,6 @@ export default class Login extends Component {
             <Section className='login_page'>
                 <LoginPage onLoginSuccess={this.handleLoginSuccess} />
             </Section>
-            )
-        }
+        )
+    }
 }

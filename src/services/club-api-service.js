@@ -37,28 +37,6 @@ const ClubApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             )
-    },
-
-    postComment(clubId, bookId, comment, memberId, pageNumber) {
-        return fetch(`${config.API_ENDPOINT}/api/comments`, {
-            method: 'POST',
-            headers: {
-                'authorization': `bearer ${TokenService.getAuthToken()}`,
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                book_id: bookId,
-                club_id: clubId,
-                comment,
-                member_id: memberId,
-                pageNumber
-            })
-        })
-            .then(res =>
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            )
     }
 }
 
