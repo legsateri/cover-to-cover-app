@@ -3,7 +3,6 @@ import { Button, Input } from '../Utils/Utils'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
 import SignupForm from '../SignupForm/SignupForm'
-import './LoginPage.css'
 
 class LoginPage extends React.Component {
     static defaultProps = {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Input, Required } from '../Utils/Utils'
-import './SignupForm.css';
 import AuthApiService from '../../services/auth-api-service';
 
 class SignupForm extends React.Component {

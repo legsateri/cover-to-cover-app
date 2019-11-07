@@ -1,41 +1,50 @@
-import React from 'react';
-import { Route } from 'react-router-dom'
+import React, { Component } from 'react'
+import { Route, Switch } from 'react-router-dom'
 import Navigation from '../Navigation/Navigation'
-import Homepage from '../Homepage/Homepage'
-import FindClubPage from '../FindClubPage/FindClubPage'
-import SearchResults from '../SearchResults/SearchResults'
-import NotMemberBookClubPage from '../NotMemberBookClubPage/NotMemberBookClubPage'
-import MemberBookClubPage from '../MemberBookClubPage/MemberBookClubPage'
-import AssignedBookPage from '../AssignedBookPage/AssignedBookPage'
-import StartClubPage from '../StartClubPage/StartClubPage'
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+import ClubList from '../../routes/ClubList'
 import Login from '../../routes/Login'
-import AccountPage from '../AccountPage/AccountPage'
-import AddCommentForm from '../AddCommentForm/AddCommentForm'
-import FindBookResults from '../FindBookResults/FindBookResults'
+import NotFound from '../../routes/NotFound'
 import Footer from '../Footer/Footer'
 
-function App() {
-  return (
-    <>
-      <Navigation />
+class App extends Component {
+  state = { hasError: false }
 
-      <main>
-        <Route exact path='/' component={Homepage} />
-        <Route path='/find' component={FindClubPage} />
-        <Route path='/results' component={SearchResults} />
-        <Route path='/no-member-club' component={NotMemberBookClubPage} />
-        <Route path='/member-club' component={MemberBookClubPage} />
-        <Route path='/assigned-book' component={AssignedBookPage} />
-        <Route path='/start-club' component={StartClubPage} />
-        <Route path='/login' component={Login} />
-        <Route path='/account' component={AccountPage} />
-        <Route path='/add-comment' component={AddCommentForm} />
-        <Route path='/books' component={FindBookResults} />
-      </main>
+  static getDerivedStateFromError(error) {
+    console.error(error)
+    return { hasError: true }
+  }
 
-      <Footer />
-    </>
-  );
+  render() {
+    return (
+      <>
+        <Navigation />
+
+        <main>
+          {this.state.hasError && <p>Oh no! Something is wonky...</p>}
+
+          <Switch>
+            <Route 
+              exact
+              path={'/clubs'}
+              component={ClubList}
+            />
+
+            <PublicOnlyRoute 
+              path={'/login'}
+              component={Login}
+            />
+
+            <Route 
+              component={NotFound}
+            />
+          </Switch>
+        </main>
+
+        <Footer />
+      </>
+    )
+  }
 }
 
-export default App;
+export default App;            
