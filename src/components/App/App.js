@@ -4,6 +4,7 @@ import Navigation from '../Navigation/Navigation'
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
 import ClubList from '../../routes/ClubList'
 import Login from '../../routes/Login'
+import AddClub from '../../routes/AddClub'
 import NotFound from '../../routes/NotFound'
 import Footer from '../Footer/Footer'
 
@@ -33,6 +34,11 @@ class App extends Component {
             <PublicOnlyRoute 
               path={'/login'}
               component={Login}
+            />
+
+            <Route 
+              path={'/add-club'}
+              component={AddClub}
             />
 
             <Route 
