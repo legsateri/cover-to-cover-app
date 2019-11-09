@@ -1,11 +1,13 @@
+////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
-import config from '../../config'
 import AppContext from '../../AppContext'
-
+import config from '../../config'
+////////////////////////////////////////////////////////////////////////////////
 import Navigation from '../Navigation/Navigation'
 import StartClubPage from '../StartClubPage/StartClubPage'
 import Footer from '../Footer/Footer'
+////////////////////////////////////////////////////////////////////////////////
 
 class App extends Component {
   constructor(props) {
