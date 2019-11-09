@@ -238,7 +238,8 @@ export default class StartClubPage extends Component {
 
                 <section>
                     <form onSubmit={event => this.handleSubmitClub(event)}>
-                        <label htmlFor='name'>Book Club Name</label><br />
+                        <label htmlFor='name'>Book Club Name*</label>
+                        <br />
                         <input
                             className='name'
                             type='text'
@@ -249,8 +250,10 @@ export default class StartClubPage extends Component {
                         <ValidationError
                             hasError={!this.state.club.nameValid}
                             message={this.state.club.validationMessageName} />
+                        <br />
 
-                        <label htmlFor='description'>Description</label><br />
+                        <label htmlFor='description'>Description*</label>
+                        <br />
                         <textarea
                             className='description'
                             value={this.state.club.description}
@@ -259,8 +262,10 @@ export default class StartClubPage extends Component {
                         <ValidationError
                             hasError={!this.state.club.descriptionValid}
                             message={this.state.club.validationMessageDescription} />
+                        <br />
 
-                        <label htmlFor='topic'>Topic</label><br />
+                        <label htmlFor='topic'>Topic*</label>
+                        <br />
                         <input
                             className='topic'
                             type='text'
@@ -271,7 +276,6 @@ export default class StartClubPage extends Component {
                         <ValidationError
                             hasError={!this.state.club.topicValid}
                             message={this.state.club.validationMessageTopic} />
-
                         <br />
 
                         <button
