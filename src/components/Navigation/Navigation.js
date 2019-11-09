@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 import './Navigation.css'
 
 export default class Navigation extends Component {
@@ -9,9 +11,7 @@ export default class Navigation extends Component {
                     <ul className='nav'>
                         <li>[Placeholder For Logo]</li>
                         <li>Find A Book Club</li>
-                        {/* TODO: Add hover that shows your clubs when logged in, prompts login when not. */}
-                        <li>View Your Book Clubs</li>
-                        <li>Start A Book Club</li>
+                        <li><Link to='/add-club' style={{ textDecoration: 'none' }}>Start A Book Club</Link></li>
                         <li>Account</li>
                     </ul>
                 </nav>
