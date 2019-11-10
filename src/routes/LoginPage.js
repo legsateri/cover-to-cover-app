@@ -77,7 +77,7 @@ class LoginPage extends Component {
                                         onClick={this.handleForms}
                                     />
                                     Login
-                            </label>
+                                </label>
                             </div>
 
                             <div className="radio">
@@ -90,9 +90,10 @@ class LoginPage extends Component {
                                         onClick={this.handleForms}
                                     />
                                     Signup
-                            </label>
+                                </label>
                             </div>
                         </form>
+                        <br />
                     </header>
 
                     <div>

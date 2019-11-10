@@ -44,13 +44,19 @@ class SignupForm extends Component {
                     </div>
 
                     <label htmlFor="full_name">Full Name</label>
+                    <br />
                     <input placeholder='Full Name' type="text" name='full_name' id='full_name' />
+                    <br />
 
                     <label htmlFor="email">Email</label>
+                    <br />
                     <input type="text" name='email' id='email' />
+                    <br />
 
                     <label htmlFor="password">Password</label>
+                    <br />
                     <input type="password" name='password' id='password' />
+                    <br />
 
                     <button type='submit'>Sign Up</button>
                 </form>

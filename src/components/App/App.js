@@ -6,7 +6,8 @@ import Navigation from '../Navigation/Navigation'
 ////////////////////////////////////////////////////////////////////////////////
 import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
-import LoginPage from '../../routes/LoginPage'
+import LoginPage from '../../routes/LoginPage';
+import CreateClubPage from '../../routes/CreateClubPage';
 ////////////////////////////////////////////////////////////////////////////////
 import TokenService from '../../services/TokenService';
 ////////////////////////////////////////////////////////////////////////////////
@@ -43,6 +44,10 @@ class App extends Component {
             <Route 
               path={'/login'}
               render={(props) => <LoginPage {...props} checkForLogin={this.checkForLogin} />} 
+            />
+            <PrivateRoute
+              path={'/add-club'}
+              component={CreateClubPage}
             />
           </Switch>
         </main>

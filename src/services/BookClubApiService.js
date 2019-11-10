@@ -103,7 +103,7 @@ const BookClubApiService = {
             method: 'DELETE',
             headers: {
                 'content-type': 'application/json',
-                'authorization': `bearer ${TokenServices.getAuthToken()}`
+                'authorization': `bearer ${TokenService.getAuthToken()}`
             },
         })
             .then(data => {

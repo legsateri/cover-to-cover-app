@@ -92,8 +92,8 @@ export class ClubProvider extends Component {
 
     updateClubComment = newComment => {
         this.setState({
-            clubComments: this.state.clubComments.map(review =>
-                (review.club_id !== newComment.club_id) ? comment : newComment
+            clubComments: this.state.clubComments.map(comment =>
+                (comment.club_id !== newComment.club_id) ? comment : newComment
             )
         })
     }

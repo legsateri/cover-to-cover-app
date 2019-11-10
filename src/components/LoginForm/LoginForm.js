@@ -53,10 +53,14 @@ class LoginForm extends Component {
                     </div>
 
                     <label htmlFor="email">Email</label>
+                    <br />
                     <input type="text" name='email' id='email' />
+                    <br />
 
                     <label htmlFor="password">Password</label>
+                    <br />
                     <input type="password" name='password' id='password' />
+                    <br />
 
                     <button type='submit'>
                         {(!loading)
