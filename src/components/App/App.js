@@ -1,188 +1,51 @@
 ////////////////////////////////////////////////////////////////////////////////
-import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
-import AppContext from '../../AppContext'
-import config from '../../config'
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 ////////////////////////////////////////////////////////////////////////////////
 import Navigation from '../Navigation/Navigation'
-import StartClubPage from '../StartClubPage/StartClubPage'
-import Footer from '../Footer/Footer'
+////////////////////////////////////////////////////////////////////////////////
+import ClubContext from '../../contexts/ClubContext';
+////////////////////////////////////////////////////////////////////////////////
+import LoginPage from '../../routes/LoginPage'
+////////////////////////////////////////////////////////////////////////////////
+import TokenService from '../../services/TokenService';
+////////////////////////////////////////////////////////////////////////////////
+import PrivateRoute from '../../utils/PrivateRoute';
+import PublicOnlyRoute from '../../utils/PublicOnlyRoute';
 ////////////////////////////////////////////////////////////////////////////////
 
+
 class App extends Component {
+  static contextType = ClubContext;
+
   constructor(props) {
     super(props)
     this.state = {
-      clubs: [],
-      bookComments: [],
-      clubComments: [],
-      promptsToAdd: {},
-      bookCommentsToAdd: {},
-      clubCommentsToAdd: {}
+      hasLogin: TokenService.hasAuthToken()
     }
-  }
+  };
 
-  componentDidMount() {
-    Promise.all([
-      fetch(`${config.API_ENDPOINT}/api/clubs`),
-      fetch(`${config.API_ENDPOINT}/api/club-comments`),
-      fetch(`${config.API_ENDPOINT}/api/book-comments`)
-    ])
-      .then(([clubs, bookComments, clubComments]) => {
-        if (!clubs.ok) {
-          return clubs.json().then(e => Promise.reject(e));
-        }
-        if (!bookComments.ok) {
-          return bookComments.json().then(e => Promise.reject(e));
-        }
-        if (!clubComments.ok) {
-          return clubComments.json().then(e => Promise.reject(e));
-        }
-        return Promise.all([
-          clubs.json(),
-          bookComments.json(),
-          clubComments.json()
-        ]);
-      })
-      .then(([clubsJson, clubCommentsJson, bookCommentsJson]) => {
-        this.setState({
-          clubs: clubsJson,
-          clubComments: clubCommentsJson,
-          bookComments: bookCommentsJson
-        });
-        console.log(clubsJson);
-      })
-      .catch(error => {
-        console.log(error);
-      })
-  }
-
-  addClub = (newClub) => {
-    fetch(`${config.API_ENDPOINT}/api/clubs`)
-      .then(response => {
-        if (!response.ok) {
-          return response.json().then(error => Promise.reject(error))
-        }
-        return response.json();
-      })
-      .then(responseJson => {
-        this.setState({
-          clubs: responseJson
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
-    const newClubs = [...this.state.clubs, newClub]
+  checkforLogin = () => {
     this.setState({
-      clubs: newClubs
-    });
-  }
-
-  addClubComment = (newClubComment) => {
-    fetch(`${config.API_ENDPOINT}/api/club-comments`)
-      .then(response => {
-        if (!response.ok) {
-          return response.json().then(error => Promise.reject(error))
-        }
-        return response.json();
-      })
-      .then(responseJson => {
-        this.setState({
-          clubComments: responseJson
-        });
-      })
-      .catch(error => {
-        console.log(error)
-      })
-
-    const newClubComments = [...this.state.clubComments, newClubComment]
-    this.setState({
-      clubComments: newClubComments
-    });
-  }
-
-  addBookComment = (newBookComment) => {
-    fetch(`${config.API_ENDPOINT}/api/book-comments`)
-      .then(response => {
-        if (!response.ok) {
-          return response.json().then(error => Promise.reject(error))
-        }
-        return response.json();
-      })
-      .then(responseJson => {
-        this.setState({
-          bookComments: responseJson
-        });
-      })
-      .catch(error => {
-        console.log(error)
-      })
-
-    const newBookComments = [...this.state.bookComments, newBookComment]
-    this.setState({
-      bookComments: newBookComments
-    });
-  }
-
-  updateClub = (editedClub) => {
-    fetch(`${config.API_ENDPOINT}/api/clubs`)
-      .then(response => {
-        if (!response.ok) {
-          return response.json().then(error => Promise.reject(error))
-        }
-        return response.json();
-      })
-      .then(responseJson => {
-        this.setState({
-          clubs: responseJson
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
-  renderRoutes() {
-    const paths = ['/add-club']
-
-    return paths.map((path, index) => {
-      if (path === '/add-club') {
-        return <Route key={index} path={path} component={StartClubPage} />
-      }
-    });
-  }
+      hasLogin: TokenService.hasAuthToken()
+    })
+  };
 
   render() {
-    const contextValue = {
-      clubs: this.state.clubs,
-      addClub: this.addClub,
-      deleteClub: this.deleteClub,
-      updateClub: this.updateClub,
-      clubComments: this.state.clubComments,
-      addClubComment: this.addClubComment,
-      deleteClubComment: this.deleteClubComment,
-      updateClubComment: this.updateClubComment,
-      bookComments: this.state.clubComments,
-      addBookComment: this.addBookComment,
-      deleteBookComment: this.deleteBookComment,
-      updateBookComment: this.updateBookComment
-    };
-
     return (
       <>
-        <Navigation />
+        <header className='app'>
+          <Navigation checkforLogin={this.checkforLogin} hasLogin={this.state.hasLogin} />
+        </header>
 
         <main>
-          <AppContext.Provider value={contextValue}>
-            <section className='main'>
-              {this.renderRoutes()}
-            </section>
-          </AppContext.Provider>
+          <Switch>
+            <Route 
+              path={'/login'}
+              render={(props) => <LoginPage {...props} checkForLogin={this.checkForLogin} />} 
+            />
+          </Switch>
         </main>
-
-        <Footer />
       </>
     )
   }
