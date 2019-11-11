@@ -1,8 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import SignupForm from '../components/SignupForm/SignupForm';
-import LoginForm from '../components/LoginForm/LoginForm';
+import SignupForm from '../../components/SignupForm/SignupForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 ////////////////////////////////////////////////////////////////////////////////
 
 class LoginPage extends Component {
@@ -63,7 +63,7 @@ class LoginPage extends Component {
         return (
             <>
                 <main>
-                    <header>
+                    <header className="header">
                         <h1>Start Reading</h1>
 
                         <form>

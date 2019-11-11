@@ -2,11 +2,18 @@ body {
     text-align: center;
 }
 
-nav {
+.navigation {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10;
     background-color: #aaa;
+}
+
+.private_nav, .public_nav  {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    padding: 0;
 }

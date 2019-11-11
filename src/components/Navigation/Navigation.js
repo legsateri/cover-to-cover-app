@@ -21,8 +21,8 @@ class Navigation extends Component {
         return (
             <>
                 <div className='public_nav'>
-                    <Link to='/'>[Placeholder For Logo]</Link>
-                    <Link to='/login'>Login</Link>
+                    <li><Link to='/'>[Placeholder For Logo]</Link></li>
+                    <li><Link to='/login'>Login</Link></li>
                 </div>
             </>
         )
@@ -31,13 +31,13 @@ class Navigation extends Component {
     renderPrivateLinks() {
         return (
             <>
-                <div className='private_nav'>
-                    <Link to='/'>[Placeholder For Logo]</Link>
-                    Find Clubs
-                    My Clubs
-                    Start Club
-                    <Link onClick={this.handleLogout} to='/'>Logout</Link>
-                </div>
+                <ul className='private_nav'>
+                    <Link to='/'><li>[Placeholder For Logo]</li></Link>
+                    <li> Find Club</li>
+                    <li>My Clubs</li>
+                    <li><Link to='/add-club'>Start Club</Link></li>
+                    <li><Link onClick={this.handleLogout} to='/'>Logout</Link></li>
+                </ul>
             </>
         )
     };
@@ -47,7 +47,7 @@ class Navigation extends Component {
 
         return (
             <>
-                <nav role="navigation">
+                <nav className="navigation" role="navigation">
                     {hasLogin
                         ? this.renderPrivateLinks()
                         : this.renderPublicLinks()}

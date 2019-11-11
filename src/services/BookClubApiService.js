@@ -4,36 +4,6 @@ import TokenService from './TokenService'
 ////////////////////////////////////////////////////////////////////////////////
 
 const BookClubApiService = {
-    getClubs() {
-        return fetch(`${config.API_ENDPOINT}/clubs`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-        })
-            .then(res => 
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            ) 
-    },
-
-    getClub(clubId) {
-        return fetch(`${config.API_ENDPOINT}/clubs/${clubId}`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-        })
-            .then(res => 
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            ) 
-    },
-
     postClub(club) {
         return fetch(`${config.API_ENDPOINT}/clubs`, {
             method: 'POST',
@@ -43,7 +13,7 @@ const BookClubApiService = {
             },
             body: JSON.stringify(club)
         })
-            .then(res => 
+            .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
@@ -76,21 +46,36 @@ const BookClubApiService = {
             body: JSON.stringify(newClub),
         })
             .then(res => {
-                if(!res.ok) {
+                if (!res.ok) {
                     throw new Error(res.status)
                 }
             })
     },
 
-    getClubComments(clubId) {
-        return fetch(`${config.API_ENDPOINT}/comments/clubs/${clubId}`, {
+    getClub(club_id) {
+        return fetch(`${config.API_ENDPOINT}/clubs/${club_id}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
         })
-            .then(res => 
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+
+    getAllClubs() {
+        return fetch(`${config.API_ENDPOINT}/clubs`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+        })
+            .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
@@ -106,7 +91,7 @@ const BookClubApiService = {
             },
             body: JSON.stringify(userComment),
         })
-            .then(res => 
+            .then(res =>
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
@@ -139,10 +124,40 @@ const BookClubApiService = {
             body: JSON.stringify(newComment),
         })
             .then(res => {
-                if(!res.ok) {
+                if (!res.ok) {
                     throw new Error(res.status)
                 }
             })
+    },
+
+    getComment(comment_id) {
+        return fetch(`${config.API_ENDPOINT}/comments/${comment_id}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    },
+
+    getOtherUserComments(club_id) {
+        return fetch(`${config.API_ENDPOINT}/comments/clubs/${club_id}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
     }
 }
 

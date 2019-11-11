@@ -1,12 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
+import './Homepage.css';
+////////////////////////////////////////////////////////////////////////////////
 
 export default class Homepage extends Component {
     render() {
         return (
             <>
-                <header>
+                <header className="header">
                     <h1>Cover to Cover</h1>
                     <h2>Read a book. Discuss a book.</h2>
                 </header>
