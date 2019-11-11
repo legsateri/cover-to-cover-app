@@ -10,6 +10,7 @@ import ClubContext from '../../contexts/ClubContext';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import CreateClubPage from '../../routes/CreateClubPage/CreateClubPage';
 import Homepage from '../../routes/Homepage/Homepage';
+import ClubListPage from '../../routes/ClubListPage/ClubListPage';
 ////////////////////////////////////////////////////////////////////////////////
 import TokenService from '../../services/TokenService';
 ////////////////////////////////////////////////////////////////////////////////
@@ -49,13 +50,19 @@ class App extends Component {
               component={Homepage}
             />
 
-            <Route
+            <PublicOnlyRoute
               path={'/login'}
               render={(props) => <LoginPage {...props} checkForLogin={this.checkForLogin} />}
             />
+
             <PrivateRoute
               path={'/add-club'}
               component={CreateClubPage}
+            />
+
+            <PrivateRoute 
+              path={'/clubs'}
+              component={ClubListPage}
             />
           </Switch>
         </main>
