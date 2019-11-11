@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 ////////////////////////////////////////////////////////////////////////////////
-import TokenService from '../../services/token-service'
+import TokenService from '../../services/TokenService'
 ////////////////////////////////////////////////////////////////////////////////
 import './Navigation.css'
 ////////////////////////////////////////////////////////////////////////////////
@@ -33,9 +33,9 @@ class Navigation extends Component {
             <>
                 <div className='private_nav'>
                     <Link to='/'>[Placeholder For Logo]</Link>
-                    <Link to='/clubs'>Find Clubs</Link>
-                    <Link to='/my-clubs'>My Clubs</Link>
-                    <Link to='/add-club'>Start Club</Link>
+                    Find Clubs
+                    My Clubs
+                    Start Club
                     <Link onClick={this.handleLogout} to='/'>Logout</Link>
                 </div>
             </>
