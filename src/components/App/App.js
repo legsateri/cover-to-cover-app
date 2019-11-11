@@ -3,13 +3,15 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 ////////////////////////////////////////////////////////////////////////////////
 import Navigation from '../Navigation/Navigation'
+import Footer from '../Footer/Footer'
 ////////////////////////////////////////////////////////////////////////////////
 import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
 import LoginPage from '../../routes/LoginPage';
-import CreateClubPage from '../../routes/CreateClubPage';
+import Homepage from '../../routes/Homepage';
+import NotFoundPage from '../../routes/NotFoundPage';
 ////////////////////////////////////////////////////////////////////////////////
-import TokenService from '../../services/TokenService';
+import TokenService from '../../services/token-service';
 ////////////////////////////////////////////////////////////////////////////////
 import PrivateRoute from '../../utils/PrivateRoute';
 import PublicOnlyRoute from '../../utils/PublicOnlyRoute';
@@ -41,16 +43,26 @@ class App extends Component {
 
         <main>
           <Switch>
-            <Route 
-              path={'/login'}
-              render={(props) => <LoginPage {...props} checkForLogin={this.checkForLogin} />} 
+            <Route
+              exact
+              path={'/'}
+              component={Homepage}
             />
-            <PrivateRoute
-              path={'/add-club'}
-              component={CreateClubPage}
+
+            <PublicOnlyRoute
+              path={'/login'}
+              render={(props) => <LoginPage {...props} checkForLogin={this.checkForLogin} />}
+            />
+
+            <Route 
+              component={NotFoundPage}
             />
           </Switch>
         </main>
+
+        <div>
+          <Footer />
+        </div>
       </>
     )
   }

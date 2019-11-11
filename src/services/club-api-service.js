@@ -1,9 +1,39 @@
 ////////////////////////////////////////////////////////////////////////////////
 import config from '../config'
-import TokenService from './TokenService'
+import TokenService from './token-service'
 ////////////////////////////////////////////////////////////////////////////////
 
 const BookClubApiService = {
+    getClubs() {
+        return fetch(`${config.API_ENDPOINT}/clubs`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+        })
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            ) 
+    },
+
+    getClub(clubId) {
+        return fetch(`${config.API_ENDPOINT}/clubs/${clubId}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+        })
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            ) 
+    },
+
     postClub(club) {
         return fetch(`${config.API_ENDPOINT}/clubs`, {
             method: 'POST',
@@ -52,8 +82,8 @@ const BookClubApiService = {
             })
     },
 
-    getClub(club_id) {
-        return fetch(`${config.API_ENDPOINT}/clubs/${club_id}`, {
+    getClubComments(clubId) {
+        return fetch(`${config.API_ENDPOINT}/comments/clubs/${clubId}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -64,22 +94,7 @@ const BookClubApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            ) 
-    },
-
-    getAllClubs() {
-        return fetch(`${config.API_ENDPOINT}/clubs`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-        })
-            .then(res => 
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            ) 
+            )
     },
 
     postComment(userComment) {
@@ -128,36 +143,6 @@ const BookClubApiService = {
                     throw new Error(res.status)
                 }
             })
-    },
-
-    getComment(comment_id) {
-        return fetch(`${config.API_ENDPOINT}/comments/${comment_id}`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-        })
-            .then(res => 
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            ) 
-    },
-
-    getOtherUserComments(club_id) {
-        return fetch(`${config.API_ENDPOINT}/comments/clubs/${club_id}`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-        })
-            .then(res => 
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            )
     }
 }
 

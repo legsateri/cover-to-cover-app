@@ -1,59 +1,34 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import BookClubApiService from '../services/BookClubApiService';
-////////////////////////////////////////////////////////////////////////////////
+
+export const nullClub = {
+    club: []
+}
 
 const ClubContext = React.createContext({
-    query: [],
-    clubResults: [],
-    clubs: [],
-    clubComments: [],
+    club: nullClub,
+    userComments: [],
     error: null,
-    setQuery: () => { },
-    clearQuery: () => { },
-    setClubResults: () => { },
-    clearClubResults: () => { },
     setError: () => { },
     clearError: () => { },
+    setClub: () => { },
+    clearClub: () => { },
     addClub: () => { },
     deleteClub: () => { },
     updateClub: () => { },
-    addClubComment: () => { },
-    deleteClubComment: () => { },
-    updateClubComment: () => { },
+    setUserComments: () => { },
+    addUserComment: () => { },
+    deleteUserComment: () => { },
+    updateUserComment: () => { },
 })
 
 export default ClubContext;
 
-
 export class ClubProvider extends Component {
     state = {
-        query: [],
-        clubResults: [],
-        clubs: [],
-        clubComments: [],
-        error: null,
-    };
-
-    setQuery = (query) => {
-        this.setState({ query }, () => {
-            BookClubApiService.getClub(query)
-                .then(this.setClubResults)
-                .catch(this.setError)
-        })
-    }
-
-    clearQuery = (query) => {
-        this.setState({ query: [] })
-    }
-
-    setClubResults = clubResults => {
-        this.setState({ clubResults })
-    }
-
-    clearClubResults = () => {
-        this.setState({ clubResults: [] })
+        club: nullClub,
+        error: null
     }
 
     setError = error => {
@@ -65,23 +40,50 @@ export class ClubProvider extends Component {
         this.setState({ error: null })
     }
 
-    addClub = club => {
-        this.setState({
-            clubs: [...this.state.clubs, club],
-        })
+    setClub = club => {
+        this.setState({ club })
     }
 
-    setClubComments = userComments => {
+    setUserComments = userComments => {
         this.setState({ userComments })
     }
 
-    addClubComment = userComment => {
+    clearClub = () => {
+        this.setClub(nullClub)
+        this.setUserComments([])
+    }
+
+    addClub = club => {
         this.setState({
-            userComments: [...this.state.userComments, userComment],
+            club: [...this.state.club, club],
         })
     }
 
-    deleteClubComment = userCommentId => {
+    deleteClub = clubId => {
+        const newClubs = this.state.club.filter(club =>
+            club.id !== clubId
+        )
+        this.setState({
+            club: newClubs
+        })
+    }
+
+    updateClub = newClub => {
+        this.setState({
+            club: this.state.club.map(club =>
+                (club.club_id !== newClub.club_id) ? club : newClub
+            )
+        })
+    }
+
+    addUserComment = userComment => {
+        this.setUserComments([
+            ...this.state.userComments,
+            userComment
+        ])
+    }
+
+    deleteUserComment = userCommentId => {
         const newUserComments = this.state.userComments.filter(userComment =>
             userComment.id !== userCommentId
         )
@@ -90,9 +92,9 @@ export class ClubProvider extends Component {
         })
     }
 
-    updateClubComment = newComment => {
+    updateUserComment = newComment => {
         this.setState({
-            clubComments: this.state.clubComments.map(comment =>
+            userComments: this.state.userComments.map(comment =>
                 (comment.club_id !== newComment.club_id) ? comment : newComment
             )
         })
@@ -100,22 +102,20 @@ export class ClubProvider extends Component {
 
     render() {
         const value = {
-            query: this.state.query,
-            setQuery: this.setQuery,
-            clearQuery: this.clearQuery,
-            clubResults: this.state.clubResults,
-            setClubResults: this.setClubResults,
-            clearClubResults: this.clearClubResults,
+            club: this.state.club,
+            userComments: this.state.userComments,
             error: this.state.error,
-            setError: this.setError,
-            clearError: this.clearError,
-            clubs: this.state.clubs,
-            clubComments: this.state.clubComments,
-            addClub: this.addClub,
-            setClubComments: this.setClubComments,
-            addClubComment: this.addClubComment,
-            deleteClubComment: this.deleteClubComment,
-            updateClubComment: this.updateClubComment,
+            setError: this.state.setError,
+            clearError: this.state.clearError,
+            setClub: this.state.setClub,
+            clearClub: this.state.clearClub,
+            addClub: this.state.addClub,
+            deleteClub: this.state.deleteClub,
+            updateClub: this.state.updateClub,
+            setUserComments: this.state.setUserComments,
+            addUserComment: this.state.addUserComment,
+            deleteUserComment: this.state.deleteUserComment,
+            updateUserComment: this.state.updateUserComment,
         }
 
         return (
