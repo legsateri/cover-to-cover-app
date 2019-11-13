@@ -49,10 +49,11 @@ class App extends Component {
               component={Homepage}
             />
 
-            <Route
+            <PublicOnlyRoute
               path={'/login'}
-              render={(props) => <LoginPage {...props} checkForLogin={this.checkForLogin} />}
+              component={LoginPage}
             />
+
             <PrivateRoute
               path={'/add-club'}
               component={CreateClubPage}
