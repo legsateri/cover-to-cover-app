@@ -33,7 +33,7 @@ class Navigation extends Component {
             <>
                 <ul className='private_nav'>
                     <Link to='/'><li>[Placeholder For Logo]</li></Link>
-                    <li> Find Club</li>
+                    <Link to='/clubs'><li> Find Club</li></Link>
                     <li>My Clubs</li>
                     <li><Link to='/add-club'>Start Club</Link></li>
                     <li><Link onClick={this.handleLogout} to='/'>Logout</Link></li>

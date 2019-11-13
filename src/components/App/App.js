@@ -11,6 +11,8 @@ import LoginPage from '../../routes/LoginPage/LoginPage';
 import CreateClubPage from '../../routes/CreateClubPage/CreateClubPage';
 import Homepage from '../../routes/Homepage/Homepage';
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
+import ClubListPage from '../../routes/ClubListPage/ClubListPage';
+import ClubPage from '../../routes/ClubPage/ClubPage';
 ////////////////////////////////////////////////////////////////////////////////
 import TokenService from '../../services/TokenService';
 ////////////////////////////////////////////////////////////////////////////////
@@ -60,7 +62,17 @@ class App extends Component {
               component={CreateClubPage}
             />
 
-            <Route 
+            <PrivateRoute
+              path={'/clubs'}
+              component={ClubListPage}
+            />
+
+            <PrivateRoute
+              path={'/clubs/:club_id'}
+              component={ClubPage}
+            />
+
+            <Route
               component={NotFoundPage}
             />
           </Switch>
