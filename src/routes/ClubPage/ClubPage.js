@@ -1,11 +1,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import ClubListItem from '../../components/ClubListItem/ClubListItem';
-////////////////////////////////////////////////////////////////////////////////
 import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
-import BookClubApiService from '../../services/BookClubApiService';
+import TokenService from '../../services/TokenService'
+////////////////////////////////////////////////////////////////////////////////
+import config from '../../config';
 ////////////////////////////////////////////////////////////////////////////////
 
 // FIXME: Not working. Revisit and revise.
@@ -30,51 +30,50 @@ export default class ClubPage extends Component {
         const club_id = this.props.match.params.club_id
         this.context.clearError()
 
-        BookClubApiService.getClub(club_id)
-            .then(res => this.setState({ clubs: res }))
+        console.log(club_id)
 
-        BookClubApiService.getOtherUserComments(club_id)
-            .then(res => this.setState({ comments: res }))
-    }
-
-    renderClubInfo() {
-        const selectedClubId = this.props.match.params.club_id
-        const clubInfo = this.context.clubs.filter(club => club.club_id === selectedClubId)
-        const comments = this.context.comments.filter(comment => comment.club_id == selectedClubId)
-
-        if (clubInfo.length) {
-            return clubInfo.map(club => {
-                const comment = comments.find(comment => comment.club_id === club.club_id)
-
-                if (comment) {
-                    return (
-                        <div>
-                            <ClubListItem key={club.club_id} {...club} />
-                            {/* TODO: Make component that will render comments that have 
-                            been posted <Comment key={comment.comment_id} {...comment} /> */}
-                        </div>
-                    )
-                } else {
-                    return (
-                        <div>
-                            <ClubListItem key={club.club_id} {...club} />
-                        </div>
-                    )
-                }
+        Promise.all([
+            fetch(`${config.API_ENDPOINT}/clubs/${club_id}`, {
+                method: 'GET',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `bearer ${TokenService.getAuthToken()}`
+                },
             })
-        }
+        ])
+
+            .then(([clubs]) => {
+                if (!clubs.ok) {
+                    return clubs.json().then(e => Promise.reject(e));
+                }
+                return Promise.all([
+                    clubs.json()
+                ]);
+            })
+            .then(([clubsJson]) => {
+                this.setState({
+                    clubs: clubsJson
+                });
+                console.log(this.state.clubs);
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     render() {
-        const { error } = this.context
+        const clubs = this.state.clubs
+        console.log(clubs)
 
         return (
             <>
-                <div>
-                    {error
-                        ? <p>Error!</p>
-                        : this.renderClubInfo()}
+                <header className="header">
+                    <h1>{clubs.name}</h1>
+                    <p>{clubs.description}</p>
+                    <p>Topic: {clubs.topic}</p>
+                </header>
 
+                <div>
                     {/* TODO: Reading Next Input should go under club name, 
                     description, topic. */}
 

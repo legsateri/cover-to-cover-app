@@ -24,6 +24,7 @@ export default class ClubListPage extends Component {
         Promise.all([
             fetch(`${config.API_ENDPOINT}/clubs`)
         ])
+
             .then(([clubs]) => {
                 if (!clubs.ok) {
                     return clubs.json().then(e => Promise.reject(e));
