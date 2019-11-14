@@ -8,7 +8,6 @@ import TokenService from '../../services/TokenService'
 import config from '../../config';
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Not working. Revisit and revise.
 // FIXME: If possible, want this private not just to site members, but club members.
 
 export default class ClubPage extends Component {
@@ -84,7 +83,8 @@ export default class ClubPage extends Component {
                     Youtube video comment style. */}
 
                     {/* TODO: Create sidebar component including member names, and 
-                    possibly other clubs you're a member of. */}
+                    possibly other clubs you're a member of, maybe put topic in there 
+                    instead of the main section. */}
                 </div>
             </>
         )
