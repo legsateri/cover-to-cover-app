@@ -7,6 +7,8 @@ import TokenService from '../../services/TokenService'
 import './Navigation.css'
 ////////////////////////////////////////////////////////////////////////////////
 
+// FIXME: When login the nav bar doesn't expand to more links automatically, have to refresh the page
+
 class Navigation extends Component {
     static defaultProps = {
         checkForLogin: () => { }

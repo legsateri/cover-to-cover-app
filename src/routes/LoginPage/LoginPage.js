@@ -5,6 +5,8 @@ import SignupForm from '../../components/SignupForm/SignupForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 ////////////////////////////////////////////////////////////////////////////////
 
+// TODO: Add in demo user information.
+
 class LoginPage extends Component {
     constructor() {
         super()
