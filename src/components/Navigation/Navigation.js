@@ -28,12 +28,15 @@ class Navigation extends Component {
         )
     };
 
+    // TODO: Maybe hamburger some of the private links? Look up visual inspo for top navs.
     renderPrivateLinks() {
         return (
             <>
                 <ul className='private_nav'>
                     <Link to='/'><li>[Placeholder For Logo]</li></Link>
                     <Link to='/clubs'><li> Find Club</li></Link>
+                    {/* TODO: This should be a hover, so the clubs you belong to drop down 
+                    and you can actually link to them from there. */}
                     <li>My Clubs</li>
                     <li><Link to='/add-club'>Start Club</Link></li>
                     <li><Link onClick={this.handleLogout} to='/'>Logout</Link></li>

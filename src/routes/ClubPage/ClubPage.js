@@ -1,100 +1,93 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import Loading from '../../components/Loading/Loading';
+import ClubListItem from '../../components/ClubListItem/ClubListItem';
 ////////////////////////////////////////////////////////////////////////////////
 import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
 import BookClubApiService from '../../services/BookClubApiService';
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Not working. Revisit and revise.
+// FIXME: Not working. Revisit and revise.
+// FIXME: If possible, want this private not just to site members, but club members.
 
 export default class ClubPage extends Component {
     static defaultProps = {
         match: { params: {} }
     }
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            comments: [],
+            clubs: []
+        }
+    }
+
     static contextType = ClubContext
 
     componentDidMount() {
-        const { club_id } = this.props.match.params
+        const club_id = this.props.match.params.club_id
         this.context.clearError()
 
         BookClubApiService.getClub(club_id)
-            .then(this.context.setClub)
-            .catch(this.context.setError)
-
-        console.log(this.context.setClub)
+            .then(res => this.setState({ clubs: res }))
 
         BookClubApiService.getOtherUserComments(club_id)
-            .then(this.context.setComments)
-            .catch(this.context.setError)
+            .then(res => this.setState({ comments: res }))
     }
 
-    componentWillUnmount() {
-        this.context.clearClub()
-    }
+    renderClubInfo() {
+        const selectedClubId = this.props.match.params.club_id
+        const clubInfo = this.context.clubs.filter(club => club.club_id === selectedClubId)
+        const comments = this.context.comments.filter(comment => comment.club_id == selectedClubId)
 
-    renderClub() {
-        const { club, comments } = this.context
+        if (clubInfo.length) {
+            return clubInfo.map(club => {
+                const comment = comments.find(comment => comment.club_id === club.club_id)
 
-        return (
-            <>
-                <h1>{club.name}</h1>
-                <p>{club.description}</p>
-
-                <ClubContent club={club} />
-                <ClubComments comments={comments} />
-                {/* TODO: Add Comment Form */}
-            </>
-        )
+                if (comment) {
+                    return (
+                        <div>
+                            <ClubListItem key={club.club_id} {...club} />
+                            {/* TODO: Make component that will render comments that have 
+                            been posted <Comment key={comment.comment_id} {...comment} /> */}
+                        </div>
+                    )
+                } else {
+                    return (
+                        <div>
+                            <ClubListItem key={club.club_id} {...club} />
+                        </div>
+                    )
+                }
+            })
+        }
     }
 
     render() {
-        const { error, club } = this.context
-
-        let content
-
-        if (error) {
-            content = (error.error === `Club does not exist.`)
-                ? <p>Club not found.</p>
-                : <p>There was an error.</p>
-        } else if (!club.club_id) {
-            content = <Loading />
-        } else {
-            content = this.renderClub()
-        }
+        const { error } = this.context
 
         return (
-            <section>
-                {content}
-            </section>
+            <>
+                <div>
+                    {error
+                        ? <p>Error!</p>
+                        : this.renderClubInfo()}
+
+                    {/* TODO: Reading Next Input should go under club name, 
+                    description, topic. */}
+
+                    {/* TODO: Next Meeting Calendar should go under Reading Next */}
+
+                    {/* TODO: Create comment form component shouldn't take up too much 
+                    space and render between club info and posted comments will show  below. 
+                    Youtube video comment style. */}
+
+                    {/* TODO: Create sidebar component including member names, and 
+                    possibly other clubs you're a member of. */}
+                </div>
+            </>
         )
     }
-}
-
-function ClubContent({ club }) {
-    return (
-        <>
-            <p>{club.topic}</p>
-            {/* TODO: Add in currently reading as an imported component */}
-            {/* TODO: Add in next meeting as an imported component */}
-        </>
-    )
-}
-
-function ClubComments({ comments = [] }) {
-    return (
-        <>
-            <ul>
-                {comments.map(comment =>
-                    <li key={comment.comment_id}>
-                        <p>{comment.comment}</p>
-                        <p>{comment.user.full_name}</p>
-                    </li>
-                )}
-            </ul>
-        </>
-    )
 }
