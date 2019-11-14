@@ -6,6 +6,7 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 ////////////////////////////////////////////////////////////////////////////////
 
 // TODO: Add in demo user information.
+// FIXME: Upon successful signup, flip radio back to login OR auto log the user in.
 
 class LoginPage extends Component {
     constructor() {

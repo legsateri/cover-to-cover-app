@@ -37,7 +37,6 @@ export default class ClubListPage extends Component {
                 this.setState({
                     clubs: clubsJson
                 });
-                console.log(clubsJson);
             })
             .catch(error => {
                 console.log(error);

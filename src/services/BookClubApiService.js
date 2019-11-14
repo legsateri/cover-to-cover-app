@@ -52,36 +52,6 @@ const BookClubApiService = {
             })
     },
 
-    getClub(club_id) {
-        return fetch(`${config.API_ENDPOINT}/clubs/${club_id}`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-        })
-            .then(res =>
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            )
-    },
-
-    getAllClubs() {
-        return fetch(`${config.API_ENDPOINT}/clubs`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                'authorization': `bearer ${TokenService.getAuthToken()}`
-            },
-        })
-            .then(res =>
-                (!res.ok)
-                    ? res.json().then(e => Promise.reject(e))
-                    : res.json()
-            )
-    },
-
     postComment(userComment) {
         return fetch(`${config.API_ENDPOINT}/comments`, {
             method: 'POST',

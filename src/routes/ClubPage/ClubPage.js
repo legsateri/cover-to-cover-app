@@ -8,7 +8,7 @@ import TokenService from '../../services/TokenService'
 import config from '../../config';
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: If possible, want this private not just to site members, but club members.
+// TODO: If possible, want this private not just to site members, but club members.
 
 export default class ClubPage extends Component {
     static defaultProps = {
@@ -28,8 +28,6 @@ export default class ClubPage extends Component {
     componentDidMount() {
         const club_id = this.props.match.params.club_id
         this.context.clearError()
-
-        console.log(club_id)
 
         Promise.all([
             fetch(`${config.API_ENDPOINT}/clubs/${club_id}`, {
@@ -53,7 +51,6 @@ export default class ClubPage extends Component {
                 this.setState({
                     clubs: clubsJson
                 });
-                console.log(this.state.clubs);
             })
             .catch(error => {
                 console.log(error);
@@ -62,7 +59,6 @@ export default class ClubPage extends Component {
 
     render() {
         const clubs = this.state.clubs
-        console.log(clubs)
 
         return (
             <>
