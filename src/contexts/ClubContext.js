@@ -1,16 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import BookClubApiService from '../services/BookClubApiService';
+import config from '../config'
 ////////////////////////////////////////////////////////////////////////////////
 
-export const nullClub = {
-    author: {},
-    tags: [],
-}
-
 const ClubContext = React.createContext({
-    club: nullClub,
     clubs: [],
     comments: [],
     error: null,
@@ -32,7 +26,6 @@ export default ClubContext;
 
 export class ClubProvider extends Component {
     state = {
-        club: nullClub,
         clubs: [],
         comments: [],
         error: null,
@@ -49,11 +42,6 @@ export class ClubProvider extends Component {
 
     setClub = club => {
         this.setState({ club })
-    }
-
-    clearClub = () => {
-        this.setClubComments(nullClub)
-        this.setComments([])
     }
 
     addClub = club => {

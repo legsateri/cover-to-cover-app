@@ -63,6 +63,7 @@ class App extends Component {
             />
 
             <PrivateRoute
+              exact
               path={'/clubs'}
               component={ClubListPage}
             />

@@ -1,47 +1,80 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 ////////////////////////////////////////////////////////////////////////////////
-import ClubListItem from '../../components/ClubListItem/ClubListItem';
+import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
-import ClubListContext from '../../contexts/ClubListContext';
+import config from '../../config';
+import './ClubListPage.css';
 ////////////////////////////////////////////////////////////////////////////////
-import BookClubApService from '../../services/BookClubApiService';
-////////////////////////////////////////////////////////////////////////////////
-
-// TODO: Not working. Revisit and revise.
 
 export default class ClubListPage extends Component {
-    static contextType = ClubListContext
+    static contextType = ClubContext
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            clubs: []
+        }
+    }
 
     componentDidMount() {
         this.context.clearError()
-        BookClubApService.getAllClubs()
-            .then(this.context.setClubList)
-            .catch(this.context.setError)
-    }
 
-    renderClubs() {
-        const { clubList = [] } = this.context
-
-        return clubList.map(club =>
-            <ClubListItem
-                key={club.club_id}
-                club={club}
-            />
-        )
+        Promise.all([
+            fetch(`${config.API_ENDPOINT}/clubs`)
+        ])
+            .then(([clubs]) => {
+                if (!clubs.ok) {
+                    return clubs.json().then(e => Promise.reject(e));
+                }
+                return Promise.all([
+                    clubs.json()
+                ]);
+            })
+            .then(([clubsJson]) => {
+                this.setState({
+                    clubs: clubsJson
+                });
+                console.log(clubsJson);
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
     render() {
-        const {error} = this.context
+        const clubs = this.state.clubs.map(club => {
+            return (
+                <>
+                    <li key={club.club_id} className='prompt_list_item'>
+                        <div>
+                            <h2>{club.name}</h2>
+                            <p>{club.description}</p>
+                        </div>
+
+                        <Link to={`/clubs/${club.club_id}`}>
+                            {/* TODO: When clicked add user_id to whatever member column is empty until 
+                            club has 5 people, then gray out the button and say the club is full. */}
+                            <button>Join</button>
+                        </Link>
+                    </li>
+                </>
+            );
+        });
 
         return (
             <>
-                <section>
-                    {error
-                        ? <p>There was an error, try again</p>
-                        : this.renderClubs()}
-                </section>
+                <main>
+                    <header className="header">
+                        <h1>Find A Club</h1>
+                    </header>
+
+                    <section>
+                        <ul className='club_list'>{clubs}</ul>
+                    </section>
+                </main>
             </>
-        )
+        );
     }
 }

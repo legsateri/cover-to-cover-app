@@ -25,6 +25,8 @@ export default class ClubPage extends Component {
             .then(this.context.setClub)
             .catch(this.context.setError)
 
+        console.log(this.context.setClub)
+
         BookClubApiService.getOtherUserComments(club_id)
             .then(this.context.setComments)
             .catch(this.context.setError)
