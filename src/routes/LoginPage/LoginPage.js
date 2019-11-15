@@ -5,7 +5,6 @@ import SignupForm from '../../components/SignupForm/SignupForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Add in demo user information.
 // FIXME: Upon successful signup, flip radio back to login OR auto log the user in.
 
 class LoginPage extends Component {
@@ -15,6 +14,7 @@ class LoginPage extends Component {
             form: 'login'
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSignupSuccess = this.handleSignupSuccess.bind(this)
     };
 
     handleChange(event) {
@@ -32,14 +32,15 @@ class LoginPage extends Component {
         checkForLogin: () => { }
     }
 
-    handleSignupSuccess = user => {
-        const { history } = this.props
-        history.push('/login')
+    handleSignupSuccess = () => {
+        const { location, history } = this.props
+        const destination = (location.state || {}).from || '/login'
+        history.push(destination)
     }
 
     handleLoginSuccess = () => {
         const { location, history } = this.props
-        const destination = (location.state || {}).from || '/my-clubs'
+        const destination = (location.state || {}).from || '/clubs'
         history.push(destination)
         this.props.checkForLogin()
     }
@@ -101,7 +102,6 @@ class LoginPage extends Component {
 
                     <div>
                         {formOutput}
-                        <button onClick={this.props.history.goBack}>Back</button>
                     </div>
                 </main>
             </>

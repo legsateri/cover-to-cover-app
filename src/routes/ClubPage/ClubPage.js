@@ -1,11 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
+import UpdateBook from '../../components/UpdateBook/UpdateBook';
+////////////////////////////////////////////////////////////////////////////////
 import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
 import TokenService from '../../services/TokenService'
 ////////////////////////////////////////////////////////////////////////////////
 import config from '../../config';
+import './ClubPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
 // TODO: If possible, want this private not just to site members, but club members.
@@ -68,10 +71,12 @@ export default class ClubPage extends Component {
                     <p>Topic: {clubs.topic}</p>
                 </header>
 
-                <div>
-                    {/* TODO: Reading Next Input should go under club name, 
-                    description, topic. */}
+                <div className='reading'>
+                    <h2>{clubs.currently_reading}</h2>
+                    <UpdateBook />
+                </div>
 
+                <div>
                     {/* TODO: Next Meeting Calendar should go under Reading Next */}
 
                     {/* TODO: Create comment form component shouldn't take up too much 

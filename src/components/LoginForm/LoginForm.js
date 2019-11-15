@@ -68,6 +68,11 @@ class LoginForm extends Component {
                             : <Loading />}
                     </button>
                 </form>
+
+                <div>
+                    <p>Demo Email: test.user@email.com</p>
+                    <p>Demo Password: TestUser1122##</p>
+                </div>
             </>
         );
     }
