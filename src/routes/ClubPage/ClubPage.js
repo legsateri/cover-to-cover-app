@@ -41,20 +41,32 @@ export default class ClubPage extends Component {
                     'content-type': 'application/json',
                     'authorization': `bearer ${TokenService.getAuthToken()}`
                 },
+            }),
+            fetch(`${config.API_ENDPOINT}/comments`, {
+                method: 'GET',
+                headers: {
+                    'content-type': 'application/json',
+                    'authorization': `bearer ${TokenService.getAuthToken()}`
+                },
             })
         ])
 
-            .then(([clubs]) => {
+            .then(([clubs, comments]) => {
                 if (!clubs.ok) {
                     return clubs.json().then(e => Promise.reject(e));
                 }
+                if (!comments.ok) {
+                    return comments.json().then(e => Promise.reject(e));
+                }
                 return Promise.all([
-                    clubs.json()
+                    clubs.json(),
+                    comments.json()
                 ]);
             })
-            .then(([clubsJson]) => {
+            .then(([clubsJson, commentsJson]) => {
                 this.setState({
-                    clubs: clubsJson
+                    clubs: clubsJson,
+                    comments: commentsJson
                 });
             })
             .catch(error => {
@@ -64,6 +76,25 @@ export default class ClubPage extends Component {
 
     render() {
         const clubs = this.state.clubs
+
+        const clubId = this.props.match.params.club_id
+        const comments = this.state.comments
+        const clubComment = []
+
+        for (let i = 0; i < comments.length; i++) {
+            console.log(comments)
+            console.log(clubId)
+            console.log(comments[1].comment)
+            if (clubId === comments[i].club_id) {
+                clubComment.push(
+                    <li key={comments[i].comment_id}>
+                        <div>
+                            <p className='comment_content'>{comments[i].comment}</p>
+                        </div>
+                    </li>
+                )
+            }
+        }
 
         return (
             <>
@@ -81,6 +112,10 @@ export default class ClubPage extends Component {
                 <div>
                     <h3>Commentary</h3>
                     <CreateCommentForm />
+
+                    <ul>
+                        {clubComment}
+                    </ul>
                 </div>
 
                 <div>
