@@ -67,14 +67,14 @@ const BookClubApiService = {
             )
     },
 
-    postComment(userComment) {
+    postComment(comment) {
         return fetch(`${config.API_ENDPOINT}/comments`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             },
-            body: JSON.stringify(userComment),
+            body: JSON.stringify(comment)
         })
             .then(res =>
                 (!res.ok)

@@ -70,10 +70,9 @@ export class ClubProvider extends Component {
     }
 
     addComment = comment => {
-        this.setComments([
-            ...this.state.comments,
-            comment
-        ])
+        this.setState({
+            comments: [...this.state.comments, comment],
+        })
     }
 
     deleteComment = commentId => {

@@ -2,10 +2,11 @@
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
 import UpdateBook from '../../components/UpdateBook/UpdateBook';
+import CreateCommentForm from '../../components/CreateCommentForm/CreateCommentForm';
 ////////////////////////////////////////////////////////////////////////////////
 import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
-import TokenService from '../../services/TokenService'
+import TokenService from '../../services/TokenService';
 ////////////////////////////////////////////////////////////////////////////////
 import config from '../../config';
 import './ClubPage.css';
@@ -15,7 +16,8 @@ import './ClubPage.css';
 
 export default class ClubPage extends Component {
     static defaultProps = {
-        match: { params: {} }
+        match: { params: {} },
+        history: { push: () => { } }
     }
 
     constructor(props) {
@@ -77,11 +79,15 @@ export default class ClubPage extends Component {
                 </div>
 
                 <div>
+                    <h3>Commentary</h3>
+                    <CreateCommentForm />
+                </div>
+
+                <div>
                     {/* TODO: Next Meeting Calendar should go under Reading Next */}
 
-                    {/* TODO: Create comment form component shouldn't take up too much 
-                    space and render between club info and posted comments will show  below. 
-                    Youtube video comment style. */}
+                    {/* TODO: Posted comments will show  below the form. Youtube video 
+                    comment style. */}
 
                     {/* TODO: Create sidebar component including member names, and 
                     possibly other clubs you're a member of, maybe put topic in there 
