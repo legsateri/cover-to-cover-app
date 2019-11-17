@@ -25,9 +25,9 @@ class Navigation extends Component {
                     <Link to='/'><img src={require('./logo.png')} alt='cover to cover logo' /></Link>
 
                     <div className='right_justify'>
-                        <Link to='/clubs'><p className='space_between'>Find Clubs</p></Link>
-                        <Link to='/add-club'><p className='space_between'>Start Club</p></Link>
-                        <Link to='/login'><p className='space_between'>Login</p></Link>
+                        <Link to='/clubs' className='link_style' style={{ textDecoration: 'none' }}><p className='space_between'>Find Clubs</p></Link>
+                        <Link to='/add-club' className='link_style' style={{ textDecoration: 'none' }}><p className='space_between'>Start Club</p></Link>
+                        <Link to='/login' className='link_style' style={{ textDecoration: 'none' }}><p className='space_between'>Login</p></Link>
                     </div>
                 </div>
             </>
@@ -41,9 +41,9 @@ class Navigation extends Component {
                     <Link to='/'><img src={require('./logo.png')} alt='cover to cover logo' /></Link>
 
                     <div className='right_justify'>
-                        <Link to='/clubs'><p className='space_between'>Find Clubs</p></Link>
-                        <Link to='/add-club'><p className='space_between'>Start Club</p></Link>
-                        <Link onClick={this.handleLogout} to='/'><p className='space_between'>Logout</p></Link>
+                        <Link to='/clubs' className='link_style' style={{ textDecoration: 'none' }}><p className='space_between'>Find Clubs</p></Link>
+                        <Link to='/add-club' className='link_style' style={{ textDecoration: 'none' }}><p className='space_between'>Start Club</p></Link>
+                        <Link onClick={this.handleLogout} to='/' style={{ textDecoration: 'none' }} className='link_style'><p className='space_between'>Logout</p></Link>
                     </div>
                 </div>
             </>
