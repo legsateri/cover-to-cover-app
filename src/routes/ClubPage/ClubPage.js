@@ -12,7 +12,6 @@ import config from '../../config';
 import './ClubPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: If possible, want this private not just to site members, but club members.
 // FIXME: Not rendering user's name with the comment.
 
 export default class ClubPage extends Component {
@@ -79,7 +78,6 @@ export default class ClubPage extends Component {
         const clubs = this.state.clubs
 
         const clubId = this.props.match.params.club_id
-        const fullName = this.props.match.params.full_name
         const comments = this.state.comments
         const clubComments = []
 
@@ -88,8 +86,7 @@ export default class ClubPage extends Component {
                 clubComments.push(
                     <li className='comment_list' key={comments[i].comment_id}>
                         <div>
-                            <p>{comments[i].comment}</p>
-                            <p>{fullName}</p>
+                            <p>{comments[i].comment} - {comments[i].user_id}</p>
                         </div>
                     </li>
                 )
@@ -115,15 +112,7 @@ export default class ClubPage extends Component {
 
                     {clubComments}
                 </div>
-
-                <div>
-                    {/* TODO: Next Meeting Calendar should go under Reading Next */}
-
-                    {/* TODO: Create sidebar component including member names, and 
-                    possibly other clubs you're a member of, maybe put topic in there 
-                    instead of the main section. */}
-                </div>
             </>
         )
     }
-}
+} 

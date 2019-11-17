@@ -54,8 +54,6 @@ export default class ClubListPage extends Component {
                         </div>
 
                         <Link to={`/clubs/${club.club_id}`}>
-                            {/* TODO: When clicked add user_id to whatever member column is empty until 
-                            club has 5 people, then gray out the button and say the club is full. */}
                             <button className='join_button'>Join</button>
                         </Link>
                     </li>
