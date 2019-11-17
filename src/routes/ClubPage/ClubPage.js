@@ -86,7 +86,7 @@ export default class ClubPage extends Component {
                 clubComments.push(
                     <li className='comment_list' key={comments[i].comment_id}>
                         <div>
-                            <p>{comments[i].comment} - {comments[i].user_id}</p>
+                            <p>{comments[i].comment}</p>
                         </div>
                     </li>
                 )
