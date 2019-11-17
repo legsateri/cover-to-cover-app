@@ -8,7 +8,6 @@ import BookClubApiService from '../../services/BookClubApiService';
 ////////////////////////////////////////////////////////////////////////////////
 
 // FIXME: Clear form upon submit
-// FIXME: Auto add book title to page upon submit
 
 class UpdateBoook extends Component {
     static defaultProps = {
@@ -42,6 +41,9 @@ class UpdateBoook extends Component {
                 this.props.onUpdateSuccess()
             })
             .catch(this.context.setError)
+            .then(() => {
+                window.location.reload(false)
+            })
     }
 
     componentDidMount() {

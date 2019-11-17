@@ -7,8 +7,6 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 import './LoginPage.css'
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Upon successful signup, flip radio back to login OR auto log the user in.
-
 class LoginPage extends Component {
     constructor() {
         super()

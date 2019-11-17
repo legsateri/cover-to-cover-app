@@ -7,9 +7,6 @@ import TokenService from '../../services/TokenService'
 import './Navigation.css'
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: When login the nav bar doesn't update automatically, have to refresh the page.
-// FIXME: When logout the nav bar doesn't update automatically, have to refresh the page.
-
 class Navigation extends Component {
     static defaultProps = {
         checkForLogin: () => { }
@@ -18,6 +15,7 @@ class Navigation extends Component {
     handleLogout = () => {
         TokenService.clearAuthToken()
         this.props.checkForLogin()
+        window.location.reload(false)
     };
 
     renderPublicLinks() {

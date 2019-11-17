@@ -43,7 +43,12 @@ export default class ClubListPage extends Component {
             })
     }
 
+    updateClubList() {
+        this.setState({clubs: this.clubs})
+    }
+
     render() {
+        console.log(this.state)
         const clubs = this.state.clubs.map(club => {
             return (
                 <>

@@ -31,6 +31,9 @@ class SignupForm extends Component {
             .catch(res => {
                 this.setState({ error: res.error })
             })
+            .then(() => {
+                window.location.reload(false)
+            })
     }
 
     render() {

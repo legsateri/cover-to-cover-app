@@ -7,6 +7,8 @@ import ClubContext from '../../contexts/ClubContext';
 import BookClubApiService from '../../services/BookClubApiService'
 ////////////////////////////////////////////////////////////////////////////////
 
+// FIXME: Clear form upon submit
+
 class CreateCommentForm extends Component {
     static defaultProps = {
         match: { params: {} },
@@ -57,6 +59,9 @@ class CreateCommentForm extends Component {
                 this.context.addComment(newComment)
             })
             .catch(this.context.setError)
+            .then(() => {
+                window.location.reload(false)
+            })
 
         this.setState({
             comment: {
@@ -98,7 +103,8 @@ class CreateCommentForm extends Component {
                     />
                     <br />
 
-                    <button className='add_comment' onClick={event => this.handleClubId(event)}>Add</button>
+                    <button className='add_comment' 
+                        onClick={event => this.handleClubId(event)}>Add</button>
                     <br />
                 </form>
             </>

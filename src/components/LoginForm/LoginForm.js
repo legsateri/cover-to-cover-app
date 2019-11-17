@@ -40,6 +40,9 @@ class LoginForm extends Component {
                 this.setState({ error: res.error })
                 this.setState({ loading: false })
             })
+            .then(() => {
+                window.location.reload(false)
+            })
     };
 
     render() {
