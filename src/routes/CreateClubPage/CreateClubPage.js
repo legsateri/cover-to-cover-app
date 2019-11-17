@@ -5,6 +5,8 @@ import CreateClubForm from '../../components/CreateClubForm/CreateClubForm';
 ////////////////////////////////////////////////////////////////////////////////
 import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
+import './CreateClubPage.css';
+////////////////////////////////////////////////////////////////////////////////
 
 class CreateClubPage extends Component {
     static defaultProps = {
@@ -28,7 +30,7 @@ class CreateClubPage extends Component {
     render() {
         return (
             <>
-                <header className="header">
+                <header className='header margins'>
                     <h1>Start A Book Club</h1>
                 </header>
 
@@ -36,7 +38,7 @@ class CreateClubPage extends Component {
                     onCreateSuccess={this.handleCreateSuccess}
                 />
 
-                <button onClick={this.props.history.goBack}>Back</button>
+                <button className='margins back_button' onClick={this.props.history.goBack}>Back</button>
             </>
         )
     }

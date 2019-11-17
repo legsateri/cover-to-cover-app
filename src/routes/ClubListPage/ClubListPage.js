@@ -47,7 +47,7 @@ export default class ClubListPage extends Component {
         const clubs = this.state.clubs.map(club => {
             return (
                 <>
-                    <li key={club.club_id} className='prompt_list_item'>
+                    <li key={club.club_id} className='club_list'>
                         <div>
                             <h2>{club.name}</h2>
                             <p>{club.description}</p>
@@ -56,7 +56,7 @@ export default class ClubListPage extends Component {
                         <Link to={`/clubs/${club.club_id}`}>
                             {/* TODO: When clicked add user_id to whatever member column is empty until 
                             club has 5 people, then gray out the button and say the club is full. */}
-                            <button>Join</button>
+                            <button className='join_button'>Join</button>
                         </Link>
                     </li>
                 </>
@@ -66,12 +66,12 @@ export default class ClubListPage extends Component {
         return (
             <>
                 <main>
-                    <header className="header">
+                    <header className='header margins'>
                         <h1>Find A Club</h1>
                     </header>
 
-                    <section>
-                        <ul className='club_list'>{clubs}</ul>
+                    <section className='margins'>
+                        {clubs}
                     </section>
                 </main>
             </>

@@ -6,9 +6,9 @@ class NotFoundPage extends Component {
     render() {
         return (
             <>
-                <header className="header">
+                <header className='header margins'>
                     <h1>No More Pages Left To Turn</h1>
-                    <h2>Try going back, or click a link in the nav.</h2>
+                    <p>Try going back, or click a link in the nav.</p>
                 </header>
             </>
         )

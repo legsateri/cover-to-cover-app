@@ -1,0 +1,23 @@
+@media only screen and (min-width: 200px) {
+    .email, .password, .full_name {
+        width: 250px;
+        border: 1px solid gray;
+        margin-bottom: 20px;
+    }
+
+    .submit_button {
+        width: 50px;
+        border: 1px solid gray;
+        margin-bottom: 20px;
+    }
+
+    .signup_button {
+        width: 75px;
+        border: 1px solid gray;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+
+}

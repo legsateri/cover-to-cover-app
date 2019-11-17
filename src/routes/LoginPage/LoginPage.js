@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import SignupForm from '../../components/SignupForm/SignupForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 ////////////////////////////////////////////////////////////////////////////////
+import './LoginPage.css'
+////////////////////////////////////////////////////////////////////////////////
 
 // FIXME: Upon successful signup, flip radio back to login OR auto log the user in.
 
@@ -67,7 +69,7 @@ class LoginPage extends Component {
         return (
             <>
                 <main>
-                    <header className="header">
+                    <header className='margins header'>
                         <h1>Start Reading</h1>
 
                         <form>

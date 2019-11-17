@@ -95,7 +95,7 @@ class CreateCommentForm extends Component {
                     />
                     <br />
 
-                    <button onClick={event => this.handleClubId(event)}>Add</button>
+                    <button className='add_comment' onClick={event => this.handleClubId(event)}>Add</button>
                     <br />
                 </form>
             </>

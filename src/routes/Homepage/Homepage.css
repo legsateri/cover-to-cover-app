@@ -1,3 +1,25 @@
-.header {
-    padding-top: 100px;
+@media only screen and (min-width: 200px) {
+    .header {
+        padding-top: 125px;
+    }
+    
+    .margins {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .homepage {
+        margin-bottom: 50px;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .header {
+        padding-top: 100px;
+    }
+    
+    .margins {
+        margin-left: 75px;
+        margin-right: 75px;
+    }
 }

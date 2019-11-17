@@ -47,29 +47,29 @@ class LoginForm extends Component {
 
         return (
             <>
-                <form className='login_form' onSubmit={this.handleSubmitJwtAuth}>
+                <form className='login_form margins' onSubmit={this.handleSubmitJwtAuth}>
                     <div role='alert'>
                         {error && <p>{error}</p>}
                     </div>
 
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor='email'>Email</label>
                     <br />
-                    <input type="text" name='email' id='email' />
-                    <br />
-
-                    <label htmlFor="password">Password</label>
-                    <br />
-                    <input type="password" name='password' id='password' />
+                    <input type='text' name='email' id='email' className='email' />
                     <br />
 
-                    <button type='submit'>
+                    <label htmlFor='password'>Password</label>
+                    <br />
+                    <input type='password' name='password' id='password' className='password' />
+                    <br />
+
+                    <button type='submit' className='submit_button'>
                         {(!loading)
                             ? 'Login'
                             : <Loading />}
                     </button>
                 </form>
 
-                <div>
+                <div className='margins login_demo'>
                     <p>Demo Email: test.user@email.com</p>
                     <p>Demo Password: TestUser1122##</p>
                 </div>

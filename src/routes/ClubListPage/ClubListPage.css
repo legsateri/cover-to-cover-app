@@ -1,3 +1,15 @@
-.club_list {
-    list-style: none;
+@media only screen and (min-width: 200px) {
+    .club_list, .comment_list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .club_list {
+        margin-top: 50px;
+    }
+
+    .join_button {
+        width: 50px;
+        border: 1px solid gray;
+    }
 }

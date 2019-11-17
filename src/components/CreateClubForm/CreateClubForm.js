@@ -61,7 +61,7 @@ class CreateClubForm extends Component {
 
         return (
             <>
-                <form onSubmit={this.handleSubmit}>
+                <form className='margins' onSubmit={this.handleSubmit}>
                     <label htmlFor='name'>Book Club Name*</label>
                     <br />
                     <input

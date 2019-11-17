@@ -59,7 +59,7 @@ class UpdateBoook extends Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor='name'>Update Book: </label>
+                <label htmlFor='currently_reading'>Update Book: </label>
                 <br />
                 <input
                     className='currently_reading'
@@ -70,7 +70,7 @@ class UpdateBoook extends Component {
                     value={currently_reading}
                     onChange={this.handleChangeBook}
                 />
-                <button>Add</button>
+                <button className='add_book'>Add</button>
             </form >
         )
     }

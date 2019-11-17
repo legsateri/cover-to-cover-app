@@ -60,7 +60,7 @@ class Navigation extends Component {
 
         return (
             <>
-                <nav className="navigation" role="navigation">
+                <nav className='navigation' role='navigation'>
                     {hasLogin
                         ? this.renderPrivateLinks()
                         : this.renderPublicLinks()}

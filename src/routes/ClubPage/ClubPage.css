@@ -1,3 +1,37 @@
-.reading {
-    margin-top: 50px;
+@media only screen and (min-width: 200px) {
+    .reading {
+        margin-top: 50px;
+    }
+    
+    .comments {
+        margin-top: 50px;
+    }
+
+    .currently_reading {
+        width: 190px;
+        border: 1px solid gray;
+    }
+
+    .add_book {
+        width: 50px;
+        border: 1px solid gray;
+        margin-left: 10px;
+    }
+
+    .description {
+        width: 250px;
+        border: 1px solid gray;
+    }
+
+    .add_comment {
+        width: 50px;
+        border: 1px solid gray;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .reading {
+        margin-top: 50px;
+    }
 }

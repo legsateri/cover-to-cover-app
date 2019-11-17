@@ -1,0 +1,12 @@
+@media only screen and (min-width: 200px) {
+    .description, .name, .topic {
+        width: 250px;
+        border: 1px solid gray;
+        margin-bottom: 20px;
+    }
+
+    .create_club_button, .back_button {
+        width: 50px;
+        border: 1px solid gray;
+    }
+}

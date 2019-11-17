@@ -13,6 +13,7 @@ import './ClubPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
 // TODO: If possible, want this private not just to site members, but club members.
+// FIXME: Not rendering user's name with the comment.
 
 export default class ClubPage extends Component {
     static defaultProps = {
@@ -79,17 +80,15 @@ export default class ClubPage extends Component {
 
         const clubId = this.props.match.params.club_id
         const comments = this.state.comments
-        const clubComment = []
+        const clubComments = []
 
         for (let i = 0; i < comments.length; i++) {
-            console.log(comments)
-            console.log(clubId)
-            console.log(comments[1].comment)
-            if (clubId === comments[i].club_id) {
-                clubComment.push(
-                    <li key={comments[i].comment_id}>
+            if (clubId == comments[i].club_id) {
+                clubComments.push(
+                    <li className='comment_list' key={comments[i].comment_id}>
                         <div>
-                            <p className='comment_content'>{comments[i].comment}</p>
+                            <p>{comments[i].comment}</p>
+                            <p>{comments[i].user_id.full_name}</p>
                         </div>
                     </li>
                 )
@@ -98,24 +97,22 @@ export default class ClubPage extends Component {
 
         return (
             <>
-                <header className="header">
+                <header className='header margins'>
                     <h1>{clubs.name}</h1>
                     <p>{clubs.description}</p>
                     <p>Topic: {clubs.topic}</p>
                 </header>
 
-                <div className='reading'>
+                <div className='reading margins'>
                     <h2>{clubs.currently_reading}</h2>
                     <UpdateBook />
                 </div>
 
-                <div>
+                <div className='comments margins'>
                     <h3>Commentary</h3>
                     <CreateCommentForm />
 
-                    <ul>
-                        {clubComment}
-                    </ul>
+                    {clubComments}
                 </div>
 
                 <div>
