@@ -53,6 +53,9 @@ class CreateCommentForm extends Component {
             .then(() => {
                 this.props.onCommentSuccess()
             })
+            .then(responseJson => {
+                this.context.addComment(newComment)
+            })
             .catch(this.context.setError)
 
         this.setState({

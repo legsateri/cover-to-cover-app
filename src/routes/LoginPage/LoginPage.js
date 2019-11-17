@@ -73,12 +73,12 @@ class LoginPage extends Component {
                         <h1>Start Reading</h1>
 
                         <form>
-                            <div className="radio">
+                            <div className='radio'>
                                 <label>
                                     <input
-                                        type="radio"
-                                        value="login"
-                                        checked={this.state.form === "login"}
+                                        type='radio'
+                                        value='login'
+                                        checked={this.state.form === 'login'}
                                         onChange={this.handleChange}
                                         onClick={this.handleForms}
                                     />
@@ -86,12 +86,12 @@ class LoginPage extends Component {
                                 </label>
                             </div>
 
-                            <div className="radio">
+                            <div className='radio'>
                                 <label>
                                     <input
-                                        type="radio"
-                                        value="signup"
-                                        checked={this.state.form === "signup"}
+                                        type='radio'
+                                        value='signup'
+                                        checked={this.state.form === 'signup'}
                                         onChange={this.handleChange}
                                         onClick={this.handleForms}
                                     />

@@ -69,12 +69,6 @@ export class ClubProvider extends Component {
         this.setState({ comments })
     }
 
-    addComment = comment => {
-        this.setState({
-            comments: [...this.state.comments, comment],
-        })
-    }
-
     deleteComment = commentId => {
         const newComment = this.state.comments.filter(comment =>
             comment.comment_id !== commentId
@@ -94,7 +88,6 @@ export class ClubProvider extends Component {
 
     render() {
         const value = {
-            club: this.state.club,
             clubs: this.state.clubs,
             comments: this.state.comments,
             error: this.state.error,

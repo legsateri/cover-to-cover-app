@@ -79,6 +79,7 @@ export default class ClubPage extends Component {
         const clubs = this.state.clubs
 
         const clubId = this.props.match.params.club_id
+        const fullName = this.props.match.params.full_name
         const comments = this.state.comments
         const clubComments = []
 
@@ -88,7 +89,7 @@ export default class ClubPage extends Component {
                     <li className='comment_list' key={comments[i].comment_id}>
                         <div>
                             <p>{comments[i].comment}</p>
-                            <p>{comments[i].user_id.full_name}</p>
+                            <p>{fullName}</p>
                         </div>
                     </li>
                 )
@@ -117,9 +118,6 @@ export default class ClubPage extends Component {
 
                 <div>
                     {/* TODO: Next Meeting Calendar should go under Reading Next */}
-
-                    {/* TODO: Posted comments will show  below the form. Youtube video 
-                    comment style. */}
 
                     {/* TODO: Create sidebar component including member names, and 
                     possibly other clubs you're a member of, maybe put topic in there 
