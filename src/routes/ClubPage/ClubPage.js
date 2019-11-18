@@ -12,7 +12,10 @@ import config from '../../config';
 import './ClubPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Not rendering user's name with the comment.
+// TODO: Render user's name with the comment.
+// TODO: More clearly label fields so people know how they can interact with the page.
+// TODO: Render comments in reverse order, so most recently added is at the top. 
+// TODO: Add ability to edit club description or topic.
 
 export default class ClubPage extends Component {
     static defaultProps = {

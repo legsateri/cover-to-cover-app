@@ -4,6 +4,10 @@ import React, { Component } from 'react';
 import AuthApiService from '../../services/AuthApiService'
 ////////////////////////////////////////////////////////////////////////////////
 
+// TODO: Add clear password/signup instructions below form like dummy info below login form.
+// TODO: Add more specific error messaging (might have to do through API).
+// TODO: Success message on good signup.
+
 class SignupForm extends Component {
     static defaultProps = {
         onSignUpSuccess: () => { }
