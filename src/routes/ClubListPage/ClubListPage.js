@@ -54,7 +54,7 @@ export default class ClubListPage extends Component {
                 <>
                     <li key={club.club_id} className='club_list'>
                         <div>
-                            <h2>{club.name}</h2>
+                            <h2 className='h2_size'>{club.name}</h2>
                             <p>{club.description}</p>
                         </div>
 
@@ -70,7 +70,7 @@ export default class ClubListPage extends Component {
             <>
                 <main>
                     <header className='header margins'>
-                        <h1>Find A Club</h1>
+                        <h1 className='h1_size line_height'>Find A Club</h1>
                     </header>
 
                     <section className='margins'>

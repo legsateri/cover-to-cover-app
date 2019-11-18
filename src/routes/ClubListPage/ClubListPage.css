@@ -9,7 +9,24 @@
     }
 
     .join_button {
-        width: 50px;
-        border: 1px solid gray;
+        border: 0px;
+        padding: 0px;
+        height: 25px;
+        width: 75px;
+        border-radius: 1px;
+        background-color: #E5E9F4;
+        color: #591228;
+        font-size: 13px;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .join_button {
+        width: 90px;
+    }
+    .join_button:hover {
+        height: 33px;
+        width: 100px;
     }
 }
