@@ -10,15 +10,15 @@ export default class Homepage extends Component {
         return (
             <>
                 <header className='header margins homepage'>
-                    <h1>Cover to Cover</h1>
-                    <h2>Read a book. Discuss a book.</h2>
-                    <Link to='/clubs'><p>Find a club to join today ></p></Link>
+                    <h1 className='h1_size line_height'>Cover to Cover</h1>
+                    <h2 className='h2_size'>read a book. discuss a book.</h2>
+                    <Link to='/clubs' className='link_style' style={{ textDecoration: 'none' }}><p className='home_hyperlink'>find a book club ></p></Link>
                 </header>
 
-                <section className='margins'>
-                    <p>Looking for a few good reads? We can help with that.</p>
-                    <p>At Cover to Cover you can find any number of online book clubs to join. We've got mystery clubs, romance clubs, all-lady clubs, LGBTQ clubs, and much much more.</p>
-                    <p>If you can't find what you're looking for, start your own club. You'll be discussing books with new and old friends in no time.</p>
+                <section className='homepage_body margins'>
+                    <p className='home_p'>Looking for fellow book lovers? We can help with that.</p>
+                    <p className='home_p'>At Cover to Cover we take we make book clubbing as easy. All you have to do is find one to join. Can't find one that interests you? Start one yourself. </p>
+                    <p className='home_p'>Anyone with account can join or start a club. You can also add a book for the club to read, and contribute to the conversation in the comments.</p>
                 </section>
             </>
         )
