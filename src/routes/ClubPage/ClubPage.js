@@ -13,8 +13,6 @@ import './ClubPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
 // TODO: Render user's name with the comment.
-// TODO: More clearly label fields so people know how they can interact with the page.
-// TODO: Render comments in reverse order, so most recently added is at the top. 
 // TODO: Add ability to edit club description or topic.
 
 export default class ClubPage extends Component {
@@ -89,22 +87,25 @@ export default class ClubPage extends Component {
                 clubComments.push(
                     <li className='comment_list' key={comments[i].comment_id}>
                         <div>
-                            <p>{comments[i].comment}</p>
+                            <p>{comments[i].comment} - {comments[i].user_id}</p>
                         </div>
                     </li>
                 )
             }
         }
 
+        const reverse = clubComments.reverse()
+
         return (
             <>
                 <header className='header margins'>
                     <h1>{clubs.name}</h1>
                     <p>{clubs.description}</p>
-                    <p>Topic: {clubs.topic}</p>
+                    <p>Topic: <br/> <span>{clubs.topic}</span></p>
                 </header>
 
                 <div className='reading margins'>
+                    <p className='current_book'>Currently Reading:</p>
                     <h2>{clubs.currently_reading}</h2>
                     <UpdateBook />
                 </div>
@@ -113,7 +114,8 @@ export default class ClubPage extends Component {
                     <h3>Commentary</h3>
                     <CreateCommentForm />
 
-                    {clubComments}
+                    <h4>See What Others Are Saying:</h4>
+                    {reverse}
                 </div>
             </>
         )

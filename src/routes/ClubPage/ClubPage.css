@@ -7,10 +7,6 @@
         margin-top: 50px;
     }
 
-    .calendar {
-        margin-top: 50px;
-    }
-
     .currently_reading {
         width: 190px;
         border: 1px solid gray;
@@ -33,9 +29,8 @@
         margin-bottom: 30px;
     }
 
-    .calendar_input {
-        width: 250px;
-        border: 1px solid gray;
+    .current_book {
+        line-height: 0;
     }
 }
 
