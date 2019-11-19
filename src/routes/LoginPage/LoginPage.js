@@ -33,9 +33,8 @@ class LoginPage extends Component {
     }
 
     handleSignupSuccess = () => {
-        const { location, history } = this.props
-        const destination = (location.state || {}).from || '/login'
-        history.push(destination)
+        const success = []
+        success.push(<>Success! You can now login.</>)
     }
 
     handleLoginSuccess = () => {

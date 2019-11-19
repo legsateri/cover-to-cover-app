@@ -1,14 +1,19 @@
 ////////////////////////////////////////////////////////////////////////////////
 import React, { Component } from 'react';
 ////////////////////////////////////////////////////////////////////////////////
-import AuthApiService from '../../services/AuthApiService'
+import AuthApiService from '../../services/AuthApiService';
+////////////////////////////////////////////////////////////////////////////////
+import './SignupForm.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Add clear password/signup instructions below form like dummy info below login form.
-// TODO: Add more specific error messaging (might have to do through API).
-// TODO: Success message on good signup.
-
 class SignupForm extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            successMessage: ''
+        }
+    }
+
     static defaultProps = {
         onSignUpSuccess: () => { }
     }
@@ -35,9 +40,9 @@ class SignupForm extends Component {
             .catch(res => {
                 this.setState({ error: res.error })
             })
-            .then(() => {
-                window.location.reload(false)
-            })
+            .then(
+                this.setState({successMessage: 'Success! You can now login.'})
+            )
     }
 
     render() {
@@ -45,6 +50,7 @@ class SignupForm extends Component {
 
         return (
             <>
+                <p>{this.state.successMessage}</p>
                 <form className='signup_form margins' onSubmit={this.handleSubmit}>
                     <div role='alert'>
                         {error && <p>{error}</p>}
@@ -67,6 +73,13 @@ class SignupForm extends Component {
 
                     <button type='submit' className='signup_button'>Sign Up</button>
                 </form>
+
+                <div className='margins signup_info'>
+                    <p>Password must contain:</p>
+                    <li className='password_list'>At least 8 characters</li>
+                    <li className='password_list'>At least 1 uppercase letter</li>
+                    <li className='password_list'>At least 1 of these symbols: !@#$%^&</li>
+                </div>
             </>
         );
     }

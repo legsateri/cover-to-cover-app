@@ -1,0 +1,6 @@
+@media only screen and (min-width: 200px) {
+    .password_list {
+        list-style: none;
+        padding-left: 0;
+    }
+}
