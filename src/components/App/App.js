@@ -21,7 +21,6 @@ import PublicOnlyRoute from '../../utils/PublicOnlyRoute';
 ////////////////////////////////////////////////////////////////////////////////
 
 // TODO: Add a My Clubs page.
-// TODO: Add a search bar.
 
 class App extends Component {
   static contextType = ClubContext;

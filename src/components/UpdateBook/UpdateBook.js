@@ -7,7 +7,7 @@ import ClubContext from '../../contexts/ClubContext';
 import BookClubApiService from '../../services/BookClubApiService';
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Clear form upon submit
+// FIXME: Clear form upon submit
 
 class UpdateBoook extends Component {
     static defaultProps = {
@@ -61,7 +61,7 @@ class UpdateBoook extends Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor='currently_reading'>Update Book: </label>
+                <label className='reading_label' htmlFor='currently_reading'>Update Book: </label>
                 <br />
                 <input
                     className='currently_reading'

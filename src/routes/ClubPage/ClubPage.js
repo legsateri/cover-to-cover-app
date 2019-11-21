@@ -12,7 +12,7 @@ import config from '../../config';
 import './ClubPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Render user's name with the comment.
+// FIXME: Render user's name with the comment.
 // TODO: Add ability to edit club description or topic.
 
 export default class ClubPage extends Component {
@@ -99,14 +99,14 @@ export default class ClubPage extends Component {
         return (
             <>
                 <header className='header margins'>
-                    <h1>{clubs.name}</h1>
-                    <p>{clubs.description}</p>
-                    <p>Topic: <br/> <span>{clubs.topic}</span></p>
+                    <h1 className='h1_size'>{clubs.name}</h1>
+                    <p className='club_description'>{clubs.description}</p>
+                    <p className='topic_weight'> <span className='club_topic'>Topic: </span><br/> {clubs.topic}</p>
                 </header>
 
                 <div className='reading margins'>
                     <p className='current_book'>Currently Reading:</p>
-                    <h2>{clubs.currently_reading}</h2>
+                    <h2 className='h2_size book_name'>{clubs.currently_reading}</h2>
                     <UpdateBook />
                 </div>
 

@@ -1,36 +1,55 @@
+/* FIXME: Finish styling everything below add book input on mobile, desktop not done yet. */
+
 @media only screen and (min-width: 200px) {
     .reading {
         margin-top: 50px;
     }
-    
     .comments {
         margin-top: 50px;
     }
-
     .currently_reading {
         width: 190px;
-        border: 1px solid gray;
+        border: 1px solid lightgray;
+        height: 20px;
     }
-
+    .reading_label {
+        font-size: 13px;
+        color: #D9B282;
+    }
     .add_book {
         width: 50px;
-        border: 1px solid gray;
+        border: 0px;
+        padding: 0px;
+        height: 20px;
         margin-left: 10px;
     }
-
     .description {
         width: 250px;
-        border: 1px solid gray;
+        border: 1px solid lightgray;
     }
-
     .add_comment {
         width: 50px;
-        border: 1px solid gray;
         margin-bottom: 30px;
+        border: 0px;
+        padding: 0px;
     }
-
     .current_book {
         line-height: 0;
+        font-size: 13px;
+        color: #D9B282;
+    }
+    .book_name {
+        line-height: .9;
+        font-size: 25px;
+        padding-bottom: 15px;
+    }
+    .club_description {
+        font-weight: bold;
+        padding-bottom: 25px;
+    }
+    .club_topic {
+        font-size: 13px;
+        color: #D9B282;
     }
 }
 

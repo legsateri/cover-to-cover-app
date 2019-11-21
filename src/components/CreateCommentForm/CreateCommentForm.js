@@ -7,7 +7,7 @@ import ClubContext from '../../contexts/ClubContext';
 import BookClubApiService from '../../services/BookClubApiService'
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Clear form upon submit
+// FIXME: Clear form upon submit
 
 class CreateCommentForm extends Component {
     static defaultProps = {

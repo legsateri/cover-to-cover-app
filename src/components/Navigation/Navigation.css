@@ -22,8 +22,8 @@
         justify-content: space-between;
     }
     .space_between {
-        padding-right: 10px;
-        font-weight: bold
+        padding-right: 15px;
+        font-weight: bold;
     }
     .link_style:link {
         text-decoration: none;
@@ -51,5 +51,8 @@
         width: 40px;
         padding-left: 75px;
         padding-top: 12px;
+    }
+    .link_style:hover {
+        color: #D96C6C;
     }
 }
