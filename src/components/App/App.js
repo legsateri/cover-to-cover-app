@@ -21,6 +21,7 @@ import PublicOnlyRoute from '../../utils/PublicOnlyRoute';
 ////////////////////////////////////////////////////////////////////////////////
 
 // TODO: Add a My Clubs page.
+// FIXME: Add ScrollToTop component to fix auto scroll issue.
 
 class App extends Component {
   static contextType = ClubContext;
