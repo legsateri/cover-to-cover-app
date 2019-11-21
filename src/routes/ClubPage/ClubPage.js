@@ -12,7 +12,6 @@ import config from '../../config';
 import './ClubPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Render user's name with the comment.
 // TODO: Add ability to edit club description or topic.
 
 export default class ClubPage extends Component {
@@ -25,7 +24,7 @@ export default class ClubPage extends Component {
         super(props)
         this.state = {
             comments: [],
-            clubs: []
+            clubs: [],
         }
     }
 
@@ -43,7 +42,7 @@ export default class ClubPage extends Component {
                     'authorization': `bearer ${TokenService.getAuthToken()}`
                 },
             }),
-            fetch(`${config.API_ENDPOINT}/comments`, {
+            fetch(`${config.API_ENDPOINT}/comments/clubs/${club_id}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',
@@ -80,6 +79,7 @@ export default class ClubPage extends Component {
 
         const clubId = this.props.match.params.club_id
         const comments = this.state.comments
+        console.log(this.state.comments)
         const clubComments = []
 
         for (let i = 0; i < comments.length; i++) {
@@ -87,7 +87,7 @@ export default class ClubPage extends Component {
                 clubComments.push(
                     <li className='comment_list' key={comments[i].comment_id}>
                         <div>
-                            <p>{comments[i].comment} - {comments[i].user_id}</p>
+                            <p>{comments[i].comment} - {comments[i].full_name}</p>
                         </div>
                     </li>
                 )

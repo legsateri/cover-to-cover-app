@@ -7,8 +7,6 @@ import ClubContext from '../../contexts/ClubContext';
 import BookClubApiService from '../../services/BookClubApiService';
 ////////////////////////////////////////////////////////////////////////////////
 
-// FIXME: Clear form upon submit
-
 class UpdateBoook extends Component {
     static defaultProps = {
         match: { params: {} },
@@ -44,6 +42,11 @@ class UpdateBoook extends Component {
             .then(() => {
                 window.location.reload(false)
             })
+            .then(() => {
+                this.setState({
+                    currently_reading: ''
+                })
+            })
     }
 
     componentDidMount() {
@@ -54,6 +57,11 @@ class UpdateBoook extends Component {
                 currently_reading: res.currently_reading
             }))
             .catch(this.context.setError)
+            .then(() => {
+                this.setState({
+                    currently_reading: ''
+                })
+            })
     }
 
     render() {
