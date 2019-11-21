@@ -2,7 +2,10 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #1C2D44;
+  color: #194040;
+  font-family: 'Trykker', serif;
+  font-size: 15px;
+  background: url(./routes/Homepage/background.png);
 }
 
 code {

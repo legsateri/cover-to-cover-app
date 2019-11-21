@@ -16,18 +16,16 @@
         line-height: 0;
     }
     .h1_size {
-        font-size: 38px;
-        color: #591228;
+        font-size: 40px;
+        font-family: 'Cabin', sans-serif;
+        color: #BF3F61;
     }
     .h2_size {
-        font-size: 19px;
+        font-size: 20px;
+        font-family: 'Cedarville Cursive', cursive;
     }
-
-    .homepage_body {
-        border-top: 1px solid #E5E9F4;
-        padding-top: 20px;
-        border-bottom: 1px solid #E5E9F4;
-        padding-bottom: 20px;
+    .home_link {
+        font-weight: bold;
     }
 }
 
@@ -39,14 +37,12 @@
         margin-left: 200px;
         margin-right: 200px;
     }
-
     .h1_size {
         font-size: 50px;
     }
     .h2_size {
         font-size: 30px;
     }
-
     .home_hyperlink, .home_p {
         font-size: 20px;
     }
