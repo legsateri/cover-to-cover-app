@@ -43,6 +43,7 @@
 @media only screen and (min-width: 750px) {
     .navigation {
         font-size: 18px;
+        background-color: white;
     }
     .space_between {
         padding-right: 75px;

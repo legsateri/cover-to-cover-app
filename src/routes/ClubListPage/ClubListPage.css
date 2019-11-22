@@ -14,7 +14,7 @@
         border-radius: 1px;
     }
     .h2_list_size {
-        font-family: 'Cedarville Cursive', cursive;
+        font-family: satisfy, sans-serif;
         font-size: 25px;
         line-height: .9;
     }
@@ -22,11 +22,11 @@
         padding-bottom: 30px;
     }
     button {
-        font-family: 'Trykker', serif;
         font-size: 12px;
         background-color: #D9B282;
         color: #D96C6C;
         font-weight: bold;
+        font-family: 'Cabin', sans-serif;
     }
 }
 

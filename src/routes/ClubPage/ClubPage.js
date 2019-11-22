@@ -55,9 +55,6 @@ export default class ClubPage extends Component {
                 if (!clubs.ok) {
                     return clubs.json().then(e => Promise.reject(e));
                 }
-                if (!comments.ok) {
-                    return comments.json().then(e => Promise.reject(e));
-                }
                 return Promise.all([
                     clubs.json(),
                     comments.json()

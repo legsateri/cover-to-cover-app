@@ -17,12 +17,11 @@
     }
     .h1_size {
         font-size: 40px;
-        font-family: 'Cabin', sans-serif;
         color: #BF3F61;
     }
     .h2_size {
+        font-family: satisfy, sans-serif;
         font-size: 20px;
-        font-family: 'Cedarville Cursive', cursive;
     }
     .home_link {
         font-weight: bold;

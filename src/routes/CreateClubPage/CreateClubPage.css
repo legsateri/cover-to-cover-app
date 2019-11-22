@@ -10,5 +10,6 @@
     .create_club_button, .back_button {
         width: 50px;
         border: 1px solid gray;
+        font-family: 'Cabin', sans-serif;
     }
 }

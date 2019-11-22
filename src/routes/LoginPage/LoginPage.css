@@ -11,12 +11,14 @@
         width: 50px;
         border: 1px solid gray;
         margin-bottom: 20px;
+        font-family: 'Cabin', sans-serif;
     }
 
     .signup_button {
         width: 75px;
         border: 1px solid gray;
         margin-bottom: 20px;
+        font-family: 'Cabin', sans-serif;
     }
 }
 
