@@ -91,7 +91,7 @@ class CreateCommentForm extends Component {
         return (
             <>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='description'>Add Comment:</label>
+                    <label className='comment_label' htmlFor='description'>Add Comment:</label>
                     <br />
                     <textarea
                         className='description'

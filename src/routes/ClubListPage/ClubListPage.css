@@ -22,7 +22,8 @@
         padding-bottom: 30px;
     }
     button {
-        font-size: 12px;
+        font-size: 14px;
+        font-weight: bold;
         background-color: #D9B282;
         color: #D96C6C;
         font-weight: bold;

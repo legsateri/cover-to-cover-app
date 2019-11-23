@@ -84,7 +84,7 @@ export default class ClubPage extends Component {
                 clubComments.push(
                     <li className='comment_list' key={comments[i].comment_id}>
                         <div>
-                            <p>{comments[i].comment} - {comments[i].full_name}</p>
+                            <p>{comments[i].comment} <br /><span className='commenter_name'>{comments[i].full_name}</span></p>
                         </div>
                     </li>
                 )
@@ -108,10 +108,9 @@ export default class ClubPage extends Component {
                 </div>
 
                 <div className='comments margins'>
-                    <h3>Commentary</h3>
+                    <h3 className='h3_size'>Commentary</h3>
                     <CreateCommentForm />
 
-                    <h4>See What Others Are Saying:</h4>
                     {reverse}
                 </div>
             </>

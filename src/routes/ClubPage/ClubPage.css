@@ -1,4 +1,4 @@
-/* FIXME: Finish styling everything below add book input on mobile, desktop not done yet. */
+/* FIXME: desktop not done yet. */
 
 @media only screen and (min-width: 200px) {
     .reading {
@@ -12,9 +12,10 @@
         border: 1px solid lightgray;
         height: 20px;
     }
-    .reading_label {
+    .reading_label, .comment_label {
         font-size: 13px;
         color: #D9B282;
+        margin-bottom: 10px;
     }
     .add_book {
         width: 50px;
@@ -26,12 +27,13 @@
     .description {
         width: 250px;
         border: 1px solid lightgray;
+        margin-bottom: 10px;
     }
     .add_comment {
         width: 50px;
-        margin-bottom: 30px;
         border: 0px;
         padding: 0px;
+        height: 20px;
     }
     .current_book {
         line-height: 0;
@@ -51,10 +53,53 @@
         font-size: 13px;
         color: #D9B282;
     }
+    .h3_size {
+        font-size: 18px;
+        line-height: .9;
+    }
+    .add_comment {
+        margin-bottom: 25px;
+    }
+    .commenter_name {
+        font-style: italic;
+        font-size: 13px;
+    }
+    .comment_list {
+        border: 1px solid #D96C6C;
+        margin-bottom: 15px;
+    }
 }
 
 @media only screen and (min-width: 750px) {
     .reading {
         margin-top: 50px;
+    }
+    p {
+        font-size: 20px;
+    }
+    .reading_label, .club_topic, .current_book, .comment_label {
+        font-size: 16px;
+    }
+    .book_name{
+        font-size: 30px;
+    }
+    .add_comment {
+        width: 90px;
+        margin-bottom: 70px;
+        font-size: 15px;
+    }
+    .add_comment:hover {
+        height: 28px;
+        width: 93px;
+    }
+    .description {
+        width: 400px;
+    }
+    .currently_reading {
+        width: 290px;
+    }
+    .add_book {
+        width: 90px;
+        margin-left: 20px;
     }
 }
