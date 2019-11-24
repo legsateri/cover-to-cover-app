@@ -10,6 +10,9 @@
     .login_radio {
         padding-right: 20px;
     }
+    .form_output {
+        margin-bottom: 30px;
+    }
 }
 
 @media only screen and (min-width: 750px) {

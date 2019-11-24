@@ -99,7 +99,7 @@ class LoginPage extends Component {
                         <br />
                     </header>
 
-                    <div>
+                    <div className='form_output'>
                         {formOutput}
                     </div>
                 </main>

@@ -8,8 +8,6 @@ import config from '../../config';
 import './ClubListPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Make it so join actually works (PATCH)
-
 export default class ClubListPage extends Component {
     static contextType = ClubContext
 

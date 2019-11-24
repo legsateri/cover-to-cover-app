@@ -12,8 +12,6 @@ import config from '../../config';
 import './ClubPage.css';
 ////////////////////////////////////////////////////////////////////////////////
 
-// TODO: Add ability to edit club description or topic.
-
 export default class ClubPage extends Component {
     static defaultProps = {
         match: { params: {} },
