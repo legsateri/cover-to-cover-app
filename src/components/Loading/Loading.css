@@ -1,1 +1,54 @@
-/* FIXME: Add animation */
+div.loading_results {
+    padding-top: 10px;
+}
+
+.loading_results span {
+    transition: all 500ms ease;
+    background: #D96C6C(255, 255, 255);
+    box-shadow: 1px 2px 3px #999;
+    height: 5px;
+    width: 5px;
+    display: inline-block;
+    border-radius: 10px;
+    animation: wave 2s ease infinite;
+    margin-right: 4px;
+}
+
+.loading_results span:nth-child(1) {
+    animation-delay: 0;
+}
+
+.loading_results span:nth-child(2) {
+    animation-delay: 100ms;
+}
+
+.loading_results span:nth-child(3) {
+    animation-delay: 200ms;
+}
+
+.loading_results span:nth-child(4) {
+    animation-delay: 300ms;
+}
+
+.loading_results span:nth-child(5) {
+    animation-delay: 400ms;
+}
+
+.loading_results span:nth-child(6) {
+    animation-delay: 500ms;
+}
+
+.loading_results span:nth-child(7) {
+    animation-delay: 600ms;
+}
+
+@keyframes wave {
+    0%, 40%, 100% {
+        transform: translate(0, 0);
+        background-color: #D96C6C;
+    }
+    10% {
+        transform: translate(0, -15px);
+        background-color: #D96C6C;
+    }
+}

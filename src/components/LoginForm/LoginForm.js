@@ -6,6 +6,8 @@ import Loading from '../Loading/Loading';
 import TokenService from '../../services/TokenService';
 import AuthApiService from '../../services/AuthApiService';
 ////////////////////////////////////////////////////////////////////////////////
+import './LoginForm.css'
+////////////////////////////////////////////////////////////////////////////////
 
 class LoginForm extends Component {
     static defaultProps = {
@@ -55,12 +57,12 @@ class LoginForm extends Component {
                         {error && <p>{error}</p>}
                     </div>
 
-                    <label htmlFor='email'>Email</label>
+                    <label className='email_label' htmlFor='email'>Email</label>
                     <br />
                     <input type='text' name='email' id='email' className='email' />
                     <br />
 
-                    <label htmlFor='password'>Password</label>
+                    <label className='password_label' htmlFor='password'>Password</label>
                     <br />
                     <input type='password' name='password' id='password' className='password' />
                     <br />

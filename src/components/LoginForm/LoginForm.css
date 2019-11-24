@@ -1,0 +1,25 @@
+@media only screen and (min-width: 200px) {
+    .submit_button {
+        width: 75px;
+        border: 0px;
+        padding: 0px;
+        height: 20px;
+        margin-bottom: 25px;
+    }
+    .login_demo {
+        border: 1px solid #D96C6C;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .submit_button {
+        width: 90px;
+        margin-bottom: 40px;
+        font-size: 15px;
+    }
+    .submit_button:hover {
+        height: 28px;
+        width: 93px;
+    }
+}

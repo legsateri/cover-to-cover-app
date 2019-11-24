@@ -6,6 +6,8 @@ import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
 import BookClubApiService from '../../services/BookClubApiService'
 ////////////////////////////////////////////////////////////////////////////////
+import './CreateClubForm.css'
+////////////////////////////////////////////////////////////////////////////////
 
 class CreateClubForm extends Component {
     static defaultProps = {
@@ -62,7 +64,7 @@ class CreateClubForm extends Component {
         return (
             <>
                 <form className='margins' onSubmit={this.handleSubmit}>
-                    <label htmlFor='name'>Book Club Name*</label>
+                    <label className='name_label' htmlFor='name'>Book Club Name*</label>
                     <br />
                     <input
                         className='name'
@@ -75,18 +77,18 @@ class CreateClubForm extends Component {
                     />
                     <br />
 
-                    <label htmlFor='description'>Description*</label>
+                    <label className='description_label' htmlFor='description'>Description*</label>
                     <br />
                     <textarea
-                        className='description'
+                        className='description club_description'
                         rows='7'
                         value={description}
                         onChange={this.handleChangeDescription}
                         required
                     />
-                    <br />
+                    <br /><br />
 
-                    <label htmlFor='topic'>Topic*</label>
+                    <label className='topic_label' htmlFor='topic'>Topic*</label>
                     <br />
                     <input
                         className='topic'
@@ -99,7 +101,7 @@ class CreateClubForm extends Component {
                     />
                     <br />
 
-                    <input className='create_club_button' type='submit' />
+                    <button className='create_club_button' type='submit'>Submit</button>
                     <br />
                 </form>
             </>

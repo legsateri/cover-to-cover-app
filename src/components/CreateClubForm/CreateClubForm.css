@@ -1,46 +1,39 @@
 @media only screen and (min-width: 200px) {
-    .name_label, .email_label, .password_label {
+    .name_label, .description_label, .topic_label {
         font-size: 13px;
         color: #D9B282;
         margin-bottom: 10px;
     }
-    .full_name, .email, .password {
+    .name, .topic {
         width: 250px;
         border: 1px solid lightgray;
         margin-bottom: 30px;
         height: 20px;
     }
-    .signup_button {
+    .topic_label {
+        margin-top: 30px;
+    }
+    .create_club_button {
         width: 75px;
         border: 0px;
         padding: 0px;
         height: 20px;
-        margin-bottom: 25px;
-    }
-    .signup_info {
-        border: 1px solid #D96C6C;
-        padding-bottom: 20px;
-        margin-top: 30px;
-    }
-    .password_list {
-        list-style: none;
-        padding-left: 0;
+        margin-bottom: 10px;
     }
 }
 
 @media only screen and (min-width: 750px) {
-    .name_label, .email_label, .password_label {
+    .name_label, .description_label, .topic_label {
         font-size: 16px;
     }
-    .full_name, .email, .password {
+    .name, .topic {
         width: 400px;
     }
-    .signup_button {
+    .create_club_button {
         width: 90px;
-        margin-bottom: 40px;
         font-size: 15px;
     }
-    .signup_button:hover {
+    .create_club_button:hover {
         height: 28px;
         width: 93px;
     }

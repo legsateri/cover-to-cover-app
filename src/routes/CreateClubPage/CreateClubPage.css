@@ -1,15 +1,23 @@
-/* FIXME: Style page on desktop and mobile. */
-
 @media only screen and (min-width: 200px) {
-    .description, .name, .topic {
-        width: 250px;
-        border: 1px solid gray;
-        margin-bottom: 20px;
-    }
-
-    .create_club_button, .back_button {
-        width: 50px;
-        border: 1px solid gray;
+    .back_button {
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: #D9B282;
+        color: #D96C6C;
+        font-weight: bold;
         font-family: 'Cabin', sans-serif;
+        width: 75px;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .back_button {
+        width: 90px;
+        font-size: 15px;
+    }
+    .back_button:hover {
+        height: 28px;
+        width: 93px;
     }
 }

@@ -1,25 +1,18 @@
 @media only screen and (min-width: 200px) {
-    .club_list, .comment_list {
-        list-style: none;
-        padding-left: 0;
+    .list_padding {
+        padding-bottom: 30px;
     }
     .club_list {
         margin-top: 50px;
     }
-    .join_button {
-        border: 0px;
-        padding: 0px;
-        height: 25px;
-        width: 75px;
-        border-radius: 1px;
+    .club_list, .comment_list {
+        list-style: none;
+        padding-left: 0;
     }
     .h2_list_size {
         font-family: satisfy, sans-serif;
         font-size: 25px;
         line-height: .9;
-    }
-    .list_padding {
-        padding-bottom: 30px;
     }
     button {
         font-size: 14px;
@@ -29,9 +22,19 @@
         font-weight: bold;
         font-family: 'Cabin', sans-serif;
     }
+    .join_button {
+        border: 0px;
+        padding: 0px;
+        height: 25px;
+        width: 75px;
+        border-radius: 1px;
+    }
 }
 
 @media only screen and (min-width: 750px) {
+    .h2_list_size {
+        font-size: 32px;
+    }
     .join_button {
         width: 90px;
         margin-bottom: 25px;
@@ -40,8 +43,5 @@
     .join_button:hover {
         height: 28px;
         width: 93px;
-    }
-    .h2_list_size {
-        font-size: 32px;
     }
 }

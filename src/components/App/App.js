@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 ////////////////////////////////////////////////////////////////////////////////
 import Navigation from '../Navigation/Navigation';
-import Footer from '../Footer/Footer';
 ////////////////////////////////////////////////////////////////////////////////
 import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
@@ -19,9 +18,6 @@ import TokenService from '../../services/TokenService';
 import PrivateRoute from '../../utils/PrivateRoute';
 import PublicOnlyRoute from '../../utils/PublicOnlyRoute';
 ////////////////////////////////////////////////////////////////////////////////
-
-// TODO: Add a My Clubs page.
-// FIXME: Add ScrollToTop component to fix auto scroll issue.
 
 class App extends Component {
   static contextType = ClubContext;
@@ -80,8 +76,6 @@ class App extends Component {
             />
           </Switch>
         </main>
-
-        <Footer />
       </>
     )
   }

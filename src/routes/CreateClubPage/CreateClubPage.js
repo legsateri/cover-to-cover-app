@@ -5,8 +5,7 @@ import CreateClubForm from '../../components/CreateClubForm/CreateClubForm';
 ////////////////////////////////////////////////////////////////////////////////
 import ClubContext from '../../contexts/ClubContext';
 ////////////////////////////////////////////////////////////////////////////////
-import './CreateClubPage.css';
-////////////////////////////////////////////////////////////////////////////////
+import './CreateClubPage.css'
 
 class CreateClubPage extends Component {
     static defaultProps = {
@@ -31,7 +30,7 @@ class CreateClubPage extends Component {
         return (
             <>
                 <header className='header margins'>
-                    <h1>Start A Book Club</h1>
+                    <h1 className='h1_size list_padding'>Start A Book Club</h1>
                 </header>
 
                 <CreateClubForm

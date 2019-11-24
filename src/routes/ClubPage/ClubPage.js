@@ -98,7 +98,7 @@ export default class ClubPage extends Component {
                 <header className='header margins'>
                     <h1 className='h1_size'>{clubs.name}</h1>
                     <p className='club_description'>{clubs.description}</p>
-                    <p className='topic_weight'> <span className='club_topic'>Topic: </span><br/> {clubs.topic}</p>
+                    <p> <span className='club_topic'>Topic: </span><br/> {clubs.topic}</p>
                 </header>
 
                 <div className='reading margins'>

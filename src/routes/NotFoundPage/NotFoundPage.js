@@ -7,7 +7,7 @@ class NotFoundPage extends Component {
         return (
             <>
                 <header className='header margins'>
-                    <h1>No More Pages Left To Turn</h1>
+                    <h1 className='h1_size'>No More Pages Left To Turn</h1>
                     <p>Try going back, or click a link in the nav.</p>
                 </header>
             </>

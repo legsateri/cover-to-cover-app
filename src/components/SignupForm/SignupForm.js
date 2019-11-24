@@ -36,13 +36,11 @@ class SignupForm extends Component {
                 email.value = ''
                 password.value = ''
                 this.props.onSignUpSuccess()
+                this.setState({successMessage: 'Success! You can now login.'})
             })
             .catch(res => {
                 this.setState({ error: res.error })
             })
-            .then(
-                this.setState({successMessage: 'Success! You can now login.'})
-            )
     }
 
     render() {
@@ -56,19 +54,19 @@ class SignupForm extends Component {
                         {error && <p>{error}</p>}
                     </div>
 
-                    <label htmlFor='full_name'>Full Name</label>
+                    <label className='name_label' htmlFor='full_name'>Full Name</label>
                     <br />
-                    <input placeholder='Full Name' type='text' name='full_name' id='full_name' className='full_name' />
-                    <br />
-
-                    <label htmlFor='email'>Email</label>
-                    <br />
-                    <input type='text' name='email' id='email' className='email' />
+                    <input placeholder=' Sally Reads-A-Lot' type='text' name='full_name' id='full_name' className='full_name' />
                     <br />
 
-                    <label htmlFor='password'>Password</label>
+                    <label className='email_label' htmlFor='email'>Email</label>
                     <br />
-                    <input type='password' name='password' id='password' className='password' />
+                    <input placeholder=' loves2read@gmail.com' type='text' name='email' id='email' className='email' />
+                    <br />
+
+                    <label className='password_label' htmlFor='password'>Password</label>
+                    <br />
+                    <input placeholder=' *******' type='password' name='password' id='password' className='password' />
                     <br />
 
                     <button type='submit' className='signup_button'>Sign Up</button>

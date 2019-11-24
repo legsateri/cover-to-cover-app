@@ -67,11 +67,11 @@ class LoginPage extends Component {
             <>
                 <main>
                     <header className='margins header'>
-                        <h1>Start Reading</h1>
+                        <h1 className='h1_size'>Start Reading</h1>
 
-                        <form>
-                            <div className='radio'>
-                                <label>
+                        <form className='radio_form'>
+                            <div className='radio login_radio'>
+                                <label className='radio_label'>
                                     <input
                                         type='radio'
                                         value='login'
@@ -84,7 +84,7 @@ class LoginPage extends Component {
                             </div>
 
                             <div className='radio'>
-                                <label>
+                                <label className='radio_label'>
                                     <input
                                         type='radio'
                                         value='signup'

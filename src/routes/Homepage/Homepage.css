@@ -12,12 +12,12 @@
     .homepage {
         margin-bottom: 50px;
     }
-    .line_height {
-        line-height: 0;
-    }
     .h1_size {
         font-size: 40px;
         color: #BF3F61;
+    }
+    .line_height {
+        line-height: 0;
     }
     .h2_size {
         font-family: satisfy, sans-serif;
