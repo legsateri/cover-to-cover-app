@@ -12,7 +12,7 @@ import './CreateClubForm.css'
 class CreateClubForm extends Component {
     static defaultProps = {
         match: { params: {} },
-        onClubSuccess: () => { }
+        onCreateSuccess: () => { }
     }
 
     static contextType = ClubContext
@@ -51,7 +51,7 @@ class CreateClubForm extends Component {
 
         BookClubApiService.postClub(club)
             .then(() => {
-                this.props.onClubSuccess()
+                this.props.onCreateSuccess()
             })
             .catch(this.context.setError)
 

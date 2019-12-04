@@ -74,7 +74,6 @@ export default class ClubPage extends Component {
 
         const clubId = this.props.match.params.club_id
         const comments = this.state.comments
-        console.log(this.state.comments)
         const clubComments = []
 
         for (let i = 0; i < comments.length; i++) {
