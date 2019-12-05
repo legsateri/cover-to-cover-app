@@ -23,9 +23,7 @@ class CreateClubPage extends Component {
 
     handleCreateSuccess = createClub => {
         this.setState({clubs: this.clubs})
-        
-        const { history } = this.props
-        history.push('/clubs')
+        this.props.history.push(`/clubs`);
     }
 
     render() {

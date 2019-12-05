@@ -54,8 +54,6 @@ class CreateClubForm extends Component {
                 this.props.onCreateSuccess()
             })
             .catch(this.context.setError)
-
-        this.props.history.push(`/clubs`);
     }
 
     render() {
