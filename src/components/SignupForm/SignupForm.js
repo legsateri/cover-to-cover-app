@@ -76,6 +76,8 @@ class SignupForm extends Component {
                     <p>Password must contain:</p>
                     <li className='password_list'>At least 8 characters</li>
                     <li className='password_list'>At least 1 uppercase letter</li>
+                    <li className='password_list'>At least 1 lowercase letter</li>
+                    <li className='password_list'>At least 1 number</li>
                     <li className='password_list'>At least 1 of these symbols: !@#$%^&</li>
                 </div>
             </>
